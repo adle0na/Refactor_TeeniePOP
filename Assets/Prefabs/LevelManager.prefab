@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4167311178912139873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4167311178912139875}
+  - component: {fileID: 4167311178912139874}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4167311178912139875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167311178912139873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4167311178912139874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167311178912139873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4d3d1c3952b624aa99549f077c435d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TPingPrefabs:
+  - {fileID: 1023565248999142283, guid: 9261819718c5ab14595c0595f8b706e7, type: 3}
+  - {fileID: 7126929410845677431, guid: 14b162f9ce9a834419614a539cb3fcba, type: 3}
+  - {fileID: 1155131023577978232, guid: fa7da90dbcbb1a7459a6518aa7060cbe, type: 3}
+  - {fileID: 8760695506006637180, guid: 5f17c92d5211793439fb52400156bcea, type: 3}
+  LineRenderer: {fileID: 0}
+  BombPrefab: {fileID: 2261235029691632298, guid: 297f77b630df2c248ac5924b715d2b25, type: 3}
+  FinishDialog: {fileID: 0}
+  ClearDialog: {fileID: 0}
+  DragPointText: {fileID: 0}
+  ScoreText: {fileID: 0}
+  SceneNumber: 1
+  TpingDestroyCount: 3
+  TpingConnectRange: 1.2
+  BombSpawnCount: 5
+  BombDestroyRange: 1
+  DragPoint: 20
+  CalDragPoint: 1
+  Targets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  array: 000000000a0000000a0000000f00000000000000000000000000000000000000
