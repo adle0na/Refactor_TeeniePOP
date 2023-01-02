@@ -73,7 +73,6 @@ public class LoginSceneManager : MonoBehaviour {
                 Debug.Log("GoogleId - " + Social.localUser.id);
                 Debug.Log("UserName - " + Social.localUser.userName);
                 Debug.Log("UserName - " + PlayGamesPlatform.Instance.GetUserDisplayName());
-                GoNextScene();
             });
         }
     }
@@ -88,7 +87,7 @@ public class LoginSceneManager : MonoBehaviour {
             Debug.Log("구글 토큰으로 뒤끝서버 로그인 성공 - 동기 방식-");
             if (string.IsNullOrEmpty(Backend.UserNickName)) {
                 StaticManager.UI.OpenUI<LoginUI_Nickname>("Prefabs/LoginScene/UI", GetLoginUICanvas().transform);
-                GoNextScene();
+                LoginWithBackendToken();
             }
         }
         else

@@ -47,12 +47,12 @@ public class LoadingSceneManager : MonoBehaviour {
         
         // 차트정보 불러오기 함수 Insert
         _initializeStep.Enqueue(() => { ShowDataName("모든 차트 정보"); StaticManager.Backend.Chart.ChartInfo.BackendLoad(NextStep); });
-        // _initializeStep.Enqueue(() => { ShowDataName("무기 정보"); StaticManager.Backend.Chart.Weapon.BackendChartDataLoad(NextStep); });
-        // _initializeStep.Enqueue(() => { ShowDataName("적 정보"); StaticManager.Backend.Chart.Enemy.BackendChartDataLoad(NextStep); });
-        // _initializeStep.Enqueue(() => { ShowDataName("스테이지 정보"); StaticManager.Backend.Chart.Stage.BackendChartDataLoad(NextStep); });
-        // _initializeStep.Enqueue(() => { ShowDataName("아이템 정보"); StaticManager.Backend.Chart.Item.BackendChartDataLoad(NextStep); });
-        // _initializeStep.Enqueue(() => { ShowDataName("상점 정보"); StaticManager.Backend.Chart.Shop.BackendChartDataLoad(NextStep); });
-        // _initializeStep.Enqueue(() => { ShowDataName("퀘스트 정보"); StaticManager.Backend.Chart.Quest.BackendChartDataLoad(NextStep); });
+        _initializeStep.Enqueue(() => { ShowDataName("스테이지 정보"); StaticManager.Backend.Chart.Weapon.BackendChartDataLoad(NextStep); });
+        _initializeStep.Enqueue(() => { ShowDataName("하트 보유량"); StaticManager.Backend.Chart.Enemy.BackendChartDataLoad(NextStep); });
+        _initializeStep.Enqueue(() => { ShowDataName("코인 보유량"); StaticManager.Backend.Chart.Stage.BackendChartDataLoad(NextStep); });
+        _initializeStep.Enqueue(() => { ShowDataName("컵케이크 보유량"); StaticManager.Backend.Chart.Item.BackendChartDataLoad(NextStep); });
+        _initializeStep.Enqueue(() => { ShowDataName("아이템 보유량"); StaticManager.Backend.Chart.Shop.BackendChartDataLoad(NextStep); });
+        _initializeStep.Enqueue(() => { ShowDataName("콜렉션 수집 상태"); StaticManager.Backend.Chart.Quest.BackendChartDataLoad(NextStep); });
 
         // 랭킹 정보 불러오기 함수 Insert
         _initializeStep.Enqueue(() => { ShowDataName("랭킹 정보 불러오기"); StaticManager.Backend.Rank.BackendLoad(NextStep); });

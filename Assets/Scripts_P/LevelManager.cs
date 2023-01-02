@@ -1,16 +1,15 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
-using UnityEngine.UIElements;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] private int level;
+
+    [SerializeField] private LevelData levelDB;
+    
     // 전체 티니핑 관리 배열
     public List<Tping> _allTpings   = new List<Tping>();
     // 티니핑 선택 배열
@@ -29,8 +28,6 @@ public class LevelManager : MonoBehaviour
     private int    _Score = 0;
 
     private LevelSort _sort;
-    // 제한 시간
-    //private float  _CurrentTime = 60;
 
     private LevelActive _levelActive;
 
@@ -52,8 +49,6 @@ public class LevelManager : MonoBehaviour
     public TextMeshProUGUI DragPointText;
     // 점수 텍스트
     public TextMeshProUGUI ScoreText;
-    // 시간 텍스트
-    //public TextMeshProUGUI TimerText;
 
     [Header("게임 설정 값")]
     // 최소 연결 횟수
@@ -66,13 +61,9 @@ public class LevelManager : MonoBehaviour
     public float        BombDestroyRange  = 1.5f;
     // 제한 횟수
     public int          DragPoint         = 40;
-    // 제한 시간
-    //public float        PlayTime          = 60;
     // 나중에 추가될 제한횟수 늘리기 아이템 기능
     public int          CalDragPoint      = 1;
-    // 레벨 체크
-    public int          _currentLevel;
-    
+
     [Header("목표 값 프리팹")]
     public GameObject[] Targets;
 
@@ -85,12 +76,10 @@ public class LevelManager : MonoBehaviour
         Instance = this;
         // 시작시 생성량
         TPingSpawn(40);
-        DragPointText.text = DragPoint.ToString();
+        DragPointText.text = levelDB.Sheet1[level].drag.ToString();
+        
         // 점수 값 초기화
         ScoreText.text = "0";
-        
-        // 시간 값 초기화
-        //_CurrentTime = PlayTime;
         
         // 목표 활성화
         for (int i = 0; i < Targets.Length; i++)
@@ -102,35 +91,13 @@ public class LevelManager : MonoBehaviour
             Targets[i].GetComponent<Target>()._TargetAnim.SetInteger
                 ("ID", Targets[i].GetComponent<Target>().Target_ID);
         }
-        _currentLevel = PlayerPrefs.GetInt("Selected Level");
     }
     
     // 업데이트 값 [ 시간, 라인렌더러 ]
     void Update()
     {
         LineRendererUpdate();
-        //TimerUpdate();
     }
-    
-    // 타이머
-    /*
-    private void TimerUpdate()
-    {
-        if (_IsPlaying)
-        {
-            _CurrentTime -= Time.deltaTime;
-            if (_CurrentTime <= 0)
-            {
-                _CurrentTime = 0;
-                PingUp();
-                _IsPlaying = false;
-                FinishDialog.SetActive(true);
-            }
-
-            TimerText.text = ((int)_CurrentTime).ToString();
-        }
-    }
-    */
     
     // 라인 렌더러 설정
     private void LineRendererUpdate()

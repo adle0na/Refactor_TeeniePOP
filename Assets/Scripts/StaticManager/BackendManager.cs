@@ -123,7 +123,7 @@ public class BackendManager : MonoBehaviour {
     // 일정주기마다 데이터를 저장/불러오는 코루틴 시작(인게임 시작 시)
     public void StartUpdate() {
         StartCoroutine(UpdateGameDataTransaction());
-        StartCoroutine(UpdateRankScore());
+        //StartCoroutine(UpdateRankScore());
         StartCoroutine(GetAdminPostList());
     }
 
