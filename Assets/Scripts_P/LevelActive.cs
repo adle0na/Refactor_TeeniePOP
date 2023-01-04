@@ -45,8 +45,7 @@ public class LevelActive : MonoBehaviour
 
     public void Move3Item()
     {
-        _levelManager.DragPoint += 3;
-        _levelManager.DragPointText.text = _levelManager.DragPoint.ToString();
+
     }
 
     public void PopItem()

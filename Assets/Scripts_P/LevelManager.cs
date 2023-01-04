@@ -3,17 +3,17 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private int level;
-
     [SerializeField] private LevelData levelDB;
     
     // 전체 티니핑 관리 배열
     public List<Tping> _allTpings   = new List<Tping>();
     // 티니핑 선택 배열
-    private List<Tping> _selectPings = new List<Tping>();
+    public 
+        List<Tping> _selectPings = new List<Tping>();
     // 타겟 정보
     private Target _target;
     // 체인 블록
@@ -27,6 +27,8 @@ public class LevelManager : MonoBehaviour
     // 점수 값
     private int    _Score = 0;
 
+    private int level;
+    
     private LevelSort _sort;
 
     private LevelActive _levelActive;
@@ -36,59 +38,72 @@ public class LevelManager : MonoBehaviour
 
     [Header("Prefabs")]
     // 티니핑 프리팹 배열 ( 현재 샘플로 과일 사용중 )
-    public GameObject[]    TPingPrefabs;
+    [SerializeField]
+    private GameObject[]    TPingPrefabs;
     // 라인 렌더러
-    public LineRenderer    LineRenderer;
+    [SerializeField]
+    private LineRenderer    LineRenderer;
     // 폭탄 프리팹
-    public GameObject      BombPrefab;
+    [SerializeField]
+    private GameObject      BombPrefab;
     // 게임 오버
-    public GameObject      FinishDialog;
+    [SerializeField]
+    private GameObject      FinishDialog;
     // 클리어 화면
-    public GameObject      ClearDialog;
+    [SerializeField]
+    private GameObject      ClearDialog;
     // 리미트 초기화 값
-    public TextMeshProUGUI DragPointText;
-    // 점수 텍스트
-    public TextMeshProUGUI ScoreText;
+    [SerializeField]
+    private TextMeshProUGUI  DragPointText;
 
-    [Header("게임 설정 값")]
     // 최소 연결 횟수
-    public int          TpingDestroyCount = 3;
+    private int          TpingDestroyCount = 3;
     // 연결 범위
-    public float        TpingConnectRange = 0.1f;
+    private float        TpingConnectRange = 1f;
     // 체인블록 최소 생성 카운트
-    public int          BombSpawnCount    = 5;
+    private int          BombSpawnCount    = 5;
     // 폭발 범위
-    public float        BombDestroyRange  = 1.5f;
+    private float        BombDestroyRange  = 1.5f;
     // 제한 횟수
-    public int          DragPoint         = 40;
-    // 나중에 추가될 제한횟수 늘리기 아이템 기능
-    public int          CalDragPoint      = 1;
+    private int          DragPoint;
+    // 연결 사용 감소 횟수
+    private int          CalDragPoint      = 1;
 
     [Header("목표 값 프리팹")]
-    public GameObject[] Targets;
-
+    [SerializeField]
+    private GameObject[] Targets;
+    
     [Header("목표 값 설정")]
-    public int[] array = new int[7];
+    [SerializeField]
+    private int[] targetIndex = new int[6];
 
     // 나중에 스테이지 시작 함수로 변경할것
     void Awake()
     {
+        level = PlayerPrefs.GetInt("SelectedLevel");
         Instance = this;
         // 시작시 생성량
         TPingSpawn(40);
         DragPointText.text = levelDB.Sheet1[level].drag.ToString();
         
-        // 점수 값 초기화
-        ScoreText.text = "0";
+        string[] targets = levelDB.Sheet1[level].targets.Split(", ");
+        string[] targetValues = levelDB.Sheet1[level].targetValue.Split(", ");
         
-        // 목표 활성화
-        for (int i = 0; i < Targets.Length; i++)
+        for (int i = 0; i < targets.Length; i++)
         {
-            int id = Targets[i].GetComponent<Target>().Target_ID;
+            int result;
+            int.TryParse(targets[i], out result);
+
+            int result2;
+            int.TryParse(targetValues[i], out result2);
             
-            Targets[i].SetActive(true);
-            Targets[i].GetComponentInChildren<TextMeshProUGUI>().text = array[id].ToString();
-            Targets[i].GetComponent<Target>()._TargetAnim.SetInteger
+            targetIndex[result] = result2;
+            
+            int id = Targets[result].GetComponent<Target>().Target_ID;
+            
+            Targets[result].SetActive(true);
+            Targets[result].GetComponentInChildren<TextMeshProUGUI>().text = targetIndex[id].ToString();
+            Targets[result].GetComponent<Target>()._TargetAnim.SetInteger
                 ("ID", Targets[i].GetComponent<Target>().Target_ID);
         }
     }
@@ -116,17 +131,29 @@ public class LevelManager : MonoBehaviour
     // 생성 관리 함수
     private void TPingSpawn(int count)
     {
+        List<GameObject> spawnList = new List<GameObject>();
+        
         var StartX = -2;
         var StartY = 5;
         var X = 0;
         var Y = 0;
         var MaxX = 5;
+        
+        string[] spawnPings = levelDB.Sheet1[level].spawnPing.Split(", ");
+
+        for (int i = 0; i < spawnPings.Length; i++)
+        {
+            int result;
+            int.TryParse(spawnPings[i], out result);
+            
+            spawnList.Add(TPingPrefabs[result]);
+        }
 
         for (int i = 0; i < count; i++)
         {
             var Position = new Vector3(StartX + X , StartY + Y, 0);
             var TpingObejct =
-                Instantiate(TPingPrefabs[Random.Range(0, TPingPrefabs.Length)], Position, Quaternion.identity);
+                Instantiate(spawnList[Random.Range(0, spawnList.Count)], Position, Quaternion.identity);
             
             _allTpings.Add(TpingObejct.GetComponent<Tping>());
             
@@ -288,7 +315,6 @@ public class LevelManager : MonoBehaviour
     private void AddScore(int tpingCount)
     {
         _Score += (int)(tpingCount * 100 * (1 + (tpingCount - 3) * 0.1f));
-        ScoreText.text = _Score.ToString();
     }
     
     // 횟수 감소
@@ -308,14 +334,14 @@ public class LevelManager : MonoBehaviour
         {
             var index = int.Parse(tpingItem.ID);
 
-            if (array[index] > 0)
-                array[index]--;
+            if (targetIndex[index] > 0)
+                targetIndex[index]--;
 
             for (int i = 0; i < Targets.Length; i++)
             {
                 int id = Targets[i].GetComponent<Target>().Target_ID;
 
-                Targets[i].GetComponentInChildren<TextMeshProUGUI>().text = array[id].ToString();
+                Targets[i].GetComponentInChildren<TextMeshProUGUI>().text = targetIndex[id].ToString();
             }
             GameClearCheck();
 
@@ -326,9 +352,9 @@ public class LevelManager : MonoBehaviour
     {
         int remain = 0;
 
-        for (int i = 0; i < array.Length; i++)
+        for (int i = 0; i < targetIndex.Length; i++)
         {
-            if (array[i] <= 0)
+            if (targetIndex[i] <= 0)
                 remain++;
         }
 

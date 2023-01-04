@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using BackEnd;
 using GooglePlayGames.BasicApi;
 using Mono.Cecil.Cil;
 using TMPro;
@@ -21,18 +22,10 @@ public class Heart : MonoBehaviour
 
     void Start()
     {
-        if (!PlayerPrefs.HasKey("currentHeart"))
-        {
-            PlayerPrefs.SetInt("currentHeart", 5);
-            UpdateHeart();
-            Load();
-            StartCoroutine(RestoreHeart());
-        }
-        else
-        {
-            Load();
-            StartCoroutine(RestoreHeart());
-        }
+        PlayerPrefs.SetInt("currentHeart", 5);
+        UpdateHeart();
+        Load();
+        StartCoroutine(RestoreHeart());
     }
     
     public void UseHeart()
@@ -115,7 +108,6 @@ public class Heart : MonoBehaviour
         TimeSpan time    = nextHeartTime - DateTime.Now;
         string timeValue = String.Format("{0:D2}분{1:D1}초", time.Minutes, time.Seconds);
         timer_Text.text  = timeValue;
-
     }
     
     private void UpdateHeart()
@@ -130,14 +122,13 @@ public class Heart : MonoBehaviour
     
     private void Load()
     {
-        currentHeart  =              PlayerPrefs.GetInt("currentHeart");
+        currentHeart  = BackendGameData.userData.heart;
         nextHeartTime = StringToDate(PlayerPrefs.GetString("nextHeartTime"));
         lastHeartTime = StringToDate(PlayerPrefs.GetString("lastHeartTime"));
     }
 
     private void Save()
     {
-        PlayerPrefs.SetInt   ("currentHeart", currentHeart);
         PlayerPrefs.SetString("nextHeartTime", nextHeartTime.ToString());
         PlayerPrefs.SetString("lastHeartTime", lastHeartTime.ToString());
     }

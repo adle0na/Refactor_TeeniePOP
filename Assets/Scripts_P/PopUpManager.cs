@@ -8,22 +8,32 @@ using UnityEngine.SceneManagement;
 
 public class PopUpManager : MonoBehaviour
 {
-    public Heart _heart;
-    public GameObject popupBackGround;
-    public GameObject Clear;
-    public TextMeshProUGUI clearLevel_txt;
-    public TextMeshProUGUI clearCoin_txt;
-    public TextMeshProUGUI clearScore_txt;
+    [Header("User Valuse")]
+    [SerializeField]
+    private List<GameObject> topIcons;
+    // 0: 하트, 1: 코인, 2: 컵케이크
     
-    public GameObject target_info;
+    [SerializeField]
+    private List<GameObject> PopUps;
+    // 0: 클리어, 1: 실패, 2: 목표, 3: 상점, 4: 우편함, 5: 설정
+    
+    [SerializeField]
+    private GameObject popupBackGround;
+
+    [SerializeField]
+    private List<TextMeshProUGUI> clear_text;
+    // 0: 클리어 레벨, 1: 획득 코인, 2: 최종 점수
+    
+    private Heart _heart;
+    
     public GameObject[] target_panels;
     
     public TextMeshProUGUI currentLevel_txt;
 
     // pref값으로 변경할것
-    public int move3_count = 10;
-    public int pop_count = 4;
-    public int shake_count = 0;
+    private int move3_count = 5;
+    private int pop_count = 4;
+    private int shake_count = 0;
     
     private LevelSelector _levelSelector;
 
@@ -31,44 +41,53 @@ public class PopUpManager : MonoBehaviour
 
     private void Awake()
     {
-        _heart.GetComponent<Heart>();
-        
-        clearCoin_txt.text = (PlayerPrefs.GetFloat("CurrentScore") * 0.015f).ToString("000");
-        clearScore_txt.text = PlayerPrefs.GetFloat("CurrentScore").ToString() + "점";
+        clear_text[1].text = (PlayerPrefs.GetFloat("CurrentScore") * 0.015f).ToString("000");
+        clear_text[2].text = PlayerPrefs.GetFloat("CurrentScore").ToString() + "점";
         if (PlayerPrefs.GetInt("ClearCheck") == 1)
         {
-            clearLevel_txt.text = "레벨 " + (PlayerPrefs.GetInt("Selected Level") + " 성공!");
+            clear_text[0].text = "레벨 " + (PlayerPrefs.GetInt("Selected Level") + " 성공!");
             popupBackGround.SetActive(true);
-            Clear.SetActive(true);
+            PopUps[0].SetActive(true);
             PlayerPrefs.SetInt("ClearCheck", 0);
         }
     }
+
+    #region 팝업 버튼
 
     public void Target_info(int _level)
     {
         _level = level;
         
         popupBackGround.SetActive(true);
-        target_info.SetActive(true);
+        PopUps[2].SetActive(true);
         currentLevel_txt.text = "레벨" + (level + 1);
         target_panels[_level].SetActive(true);
     }
 
     public void PlayBtn()
     {
-        _heart.UseHeart();
+        topIcons[0].GetComponent<Heart>().UseHeart();
+        PlayerPrefs.SetInt("InGameState", 1);
+        PlayerPrefs.SetInt("SelectedLevel",level);
         SceneManager.LoadScene("Scenes_P/InGameScene");
     }
 
-    public void exitBtn(int _level)
+    public void exitBtn(int num)
     {
-        _level = level;
         popupBackGround.SetActive(false);
-        target_info.SetActive(false);
-        target_panels[_level].SetActive(false);
         
-        popupBackGround.SetActive(false);
-        Clear.SetActive(false);
+        PopUps[num].SetActive(false);
+
+        if (num == 2)
+        {
+            for (int i = 0; i < target_panels.Length; i++)
+            {
+                target_panels[i].SetActive(false);
+            }
+        }
     }
+
+    #endregion
+
     
 }

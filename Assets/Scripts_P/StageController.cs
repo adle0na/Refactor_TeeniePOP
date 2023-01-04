@@ -1,12 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using GooglePlayGames.BasicApi;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StageController : MonoBehaviour
 {
-    public void MoveScene()
+
+    [SerializeField] private List<GameObject> inGameCanvas;
+
+    void Awake()
     {
-        SceneManager.LoadScene(1);
+        for (int i = 0; i < inGameCanvas.Count; i++)
+        {
+            if(i != PlayerPrefs.GetInt("InGameState"))
+                inGameCanvas[i].SetActive(false);
+            else if(i == PlayerPrefs.GetInt("InGameState"))
+                inGameCanvas[i].SetActive(true);
+        }
     }
-}
+}   
