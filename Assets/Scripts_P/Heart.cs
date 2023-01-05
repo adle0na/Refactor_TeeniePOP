@@ -122,7 +122,6 @@ public class Heart : MonoBehaviour
     
     private void Load()
     {
-        currentHeart  = BackendGameData.userData.heart;
         nextHeartTime = StringToDate(PlayerPrefs.GetString("nextHeartTime"));
         lastHeartTime = StringToDate(PlayerPrefs.GetString("lastHeartTime"));
     }

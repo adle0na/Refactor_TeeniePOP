@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sheet1:
   - level: 1
-    spawnPing: 0, 1, 2, 3
+    spawnPing: 0, 1, 2
     targets: '0, 1 '
     targetValue: 10, 10
     drag: 5
@@ -27,7 +27,7 @@ MonoBehaviour:
     spawnPing: 0, 1, 2, 3, 5
     targets: 0, 5
     targetValue: 20, 30
-    drag: 8
+    drag: 12
   - level: 4
     spawnPing: 1, 2, 4, 5
     targets: 4

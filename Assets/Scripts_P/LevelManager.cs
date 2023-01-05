@@ -1,19 +1,22 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
 using TMPro;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private LevelData levelDB;
     
     // 전체 티니핑 관리 배열
+    [Header("전체 블록")]
     public List<Tping> _allTpings   = new List<Tping>();
     // 티니핑 선택 배열
-    public 
-        List<Tping> _selectPings = new List<Tping>();
+    [Header("선택된 블록")]
+    public List<Tping> _selectPings = new List<Tping>();
     // 타겟 정보
     private Target _target;
     // 체인 블록
@@ -31,12 +34,9 @@ public class LevelManager : MonoBehaviour
     
     private LevelSort _sort;
 
-    private LevelActive _levelActive;
-
     // 싱글톤 사용
     public static LevelManager Instance { get; private set; }
-
-    [Header("Prefabs")]
+    
     // 티니핑 프리팹 배열 ( 현재 샘플로 과일 사용중 )
     [SerializeField]
     private GameObject[]    TPingPrefabs;
@@ -46,34 +46,44 @@ public class LevelManager : MonoBehaviour
     // 폭탄 프리팹
     [SerializeField]
     private GameObject      BombPrefab;
-    // 게임 오버
-    [SerializeField]
-    private GameObject      FinishDialog;
-    // 클리어 화면
-    [SerializeField]
-    private GameObject      ClearDialog;
     // 리미트 초기화 값
     [SerializeField]
-    private TextMeshProUGUI  DragPointText;
-
+    private TextMeshProUGUI DragPointText;
+    
+    // 인게임 팝업
+    [Header("인게임 팝업")]
+    [SerializeField]
+    private GameObject[]    InGamePopUps;
+    // 0: 리마인드, 1: 게임오버, 2: 클리어, 3: Pause메뉴 4: 종료확인
+    
+    // 인게임 팝업 배경
+    [SerializeField]
+    private GameObject      InGamePopUpBG;
+    
     // 최소 연결 횟수
     private int          TpingDestroyCount = 3;
     // 연결 범위
-    private float        TpingConnectRange = 1f;
+    private float        TpingConnectRange = 1.1f;
     // 체인블록 최소 생성 카운트
     private int          BombSpawnCount    = 5;
     // 폭발 범위
     private float        BombDestroyRange  = 1.5f;
-    // 제한 횟수
-    private int          DragPoint;
     // 연결 사용 감소 횟수
     private int          CalDragPoint      = 1;
-
-    [Header("목표 값 프리팹")]
-    [SerializeField]
-    private GameObject[] Targets;
     
-    [Header("목표 값 설정")]
+    // 제한 횟수
+    [HideInInspector]
+    public int DragPoint;
+    
+    [Header("목표(상단바)")]
+    [SerializeField]
+    private GameObject[] Targets_Top;
+    
+    [Header("목표(리마인드)")]
+    [SerializeField]
+    private GameObject[] Targets_Remind;
+    
+    [Header("목표 값")]
     [SerializeField]
     private int[] targetIndex = new int[6];
 
@@ -82,11 +92,10 @@ public class LevelManager : MonoBehaviour
     {
         level = PlayerPrefs.GetInt("SelectedLevel");
         Instance = this;
-        // 시작시 생성량
-        TPingSpawn(40);
-        DragPointText.text = levelDB.Sheet1[level].drag.ToString();
-        
-        string[] targets = levelDB.Sheet1[level].targets.Split(", ");
+
+        DragPoint             = levelDB.Sheet1[level].drag;
+        DragPointText.text    = DragPoint.ToString();
+        string[] targets      = levelDB.Sheet1[level].targets.Split(", ");
         string[] targetValues = levelDB.Sheet1[level].targetValue.Split(", ");
         
         for (int i = 0; i < targets.Length; i++)
@@ -99,16 +108,22 @@ public class LevelManager : MonoBehaviour
             
             targetIndex[result] = result2;
             
-            int id = Targets[result].GetComponent<Target>().Target_ID;
+            int id = Targets_Top[result].GetComponent<Target>().Target_ID;
             
-            Targets[result].SetActive(true);
-            Targets[result].GetComponentInChildren<TextMeshProUGUI>().text = targetIndex[id].ToString();
-            Targets[result].GetComponent<Target>()._TargetAnim.SetInteger
-                ("ID", Targets[i].GetComponent<Target>().Target_ID);
+            Targets_Top[result].SetActive(true);
+            Targets_Top[result].GetComponentInChildren<TextMeshProUGUI>().text = targetIndex[id].ToString();
+
+            int id2 = Targets_Remind[result].GetComponent<Target>().Target_ID;
+            
+            Targets_Remind[result].SetActive(true);
+            Targets_Remind[result].GetComponentInChildren<TextMeshProUGUI>().text = targetIndex[id2].ToString();
+            // Targets_Remind[result].GetComponent<Target>()._TargetAnim.SetInteger
+                // ("ID", Targets_Remind[i].GetComponent<Target>().Target_ID);
         }
+
+        StartCoroutine(TargetRemind());
     }
     
-    // 업데이트 값 [ 시간, 라인렌더러 ]
     void Update()
     {
         LineRendererUpdate();
@@ -233,7 +248,7 @@ public class LevelManager : MonoBehaviour
         
         if (selectN >= TpingDestroyCount)
         {
-            SubsDragPoint(CalDragPoint);
+            SubsDragPoint();
 
             foreach (var index in _selectPings)
             {
@@ -318,13 +333,11 @@ public class LevelManager : MonoBehaviour
     }
     
     // 횟수 감소
-    private void SubsDragPoint(int dragCount)
+    private void SubsDragPoint()
     {
         if (DragPoint > 0 && CalDragPoint == 1)
-            DragPoint -= dragCount;
-        else if (DragPoint > 0 && CalDragPoint != 1)
-            DragPoint += dragCount;
-        
+            DragPoint--;
+
         DragPointText.text = DragPoint.ToString();
     }
     
@@ -337,11 +350,11 @@ public class LevelManager : MonoBehaviour
             if (targetIndex[index] > 0)
                 targetIndex[index]--;
 
-            for (int i = 0; i < Targets.Length; i++)
+            for (int i = 0; i < Targets_Top.Length; i++)
             {
-                int id = Targets[i].GetComponent<Target>().Target_ID;
+                int id = Targets_Top[i].GetComponent<Target>().Target_ID;
 
-                Targets[i].GetComponentInChildren<TextMeshProUGUI>().text = targetIndex[id].ToString();
+                Targets_Top[i].GetComponentInChildren<TextMeshProUGUI>().text = targetIndex[id].ToString();
             }
             GameClearCheck();
 
@@ -350,28 +363,78 @@ public class LevelManager : MonoBehaviour
 
     private void GameClearCheck()
     {
-        int remain = 0;
+        int remain = targetIndex.Length;
 
         for (int i = 0; i < targetIndex.Length; i++)
         {
             if (targetIndex[i] <= 0)
-                remain++;
+                remain--;
         }
 
-        if (remain >= 8)
+        if (remain <= 0)
         {
             _isPlaying = false;
             _isClear = true;
-            ClearDialog.SetActive(true);
+            InGamePopUpBG.SetActive(true);
+            InGamePopUps[2].SetActive(true);
             PlayerPrefs.SetFloat("CurrentScore", (float)_Score);
+            PlayerPrefs.SetInt("ClearCheck", 1);
+            remain = 0;
         }
-        else if (DragPoint == 0 && remain > 0)
+        
+        if (DragPoint == 0 && remain > 0)
         {
             _isPlaying = false;
-            FinishDialog.SetActive(true);
+            InGamePopUpBG.SetActive(true);
+            InGamePopUps[1].SetActive(true);
         }
-        else
-            remain = 0;
     }
+    #endregion
+
+    #region 인게임 팝업
+
+    IEnumerator TargetRemind()
+    {
+        InGamePopUpBG.SetActive(true);
+        InGamePopUps[0].SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+        
+        InGamePopUpBG.SetActive(false);
+        InGamePopUps[0].SetActive(false);
+        
+        TPingSpawn(40);
+    }
+
+    public void BacktoLevelSelectMap(int state)
+    {
+        PlayerPrefs.SetInt("InGameState", 0);
+        PlayerPrefs.SetInt("StageClear", state);
+        // 0: 디폴트 1: Clear 2: Lose
+        SceneManager.LoadScene("Scenes_P/InGameScene");
+    }
+
+    public void QuitPopUp()
+    {
+        InGamePopUpBG.SetActive(false);
+        for (int i = 0; i < InGamePopUps.Length; i++)
+        {
+            InGamePopUps[i].SetActive(false);
+        }
+    }
+
+    public void PauseMenu()
+    {
+        InGamePopUpBG.SetActive(true);
+        InGamePopUps[3].SetActive(true);
+    }
+
+    public void QuitCheckPopUp()
+    {
+        InGamePopUps[3].SetActive(false);
+        InGamePopUps[4].SetActive(true);
+    }
+
+
     #endregion
 }

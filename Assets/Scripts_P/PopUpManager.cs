@@ -60,7 +60,7 @@ public class PopUpManager : MonoBehaviour
         
         popupBackGround.SetActive(true);
         PopUps[2].SetActive(true);
-        currentLevel_txt.text = "레벨" + (level + 1);
+        currentLevel_txt.text = "레벨" + (level);
         target_panels[_level].SetActive(true);
     }
 
@@ -68,24 +68,23 @@ public class PopUpManager : MonoBehaviour
     {
         topIcons[0].GetComponent<Heart>().UseHeart();
         PlayerPrefs.SetInt("InGameState", 1);
-        PlayerPrefs.SetInt("SelectedLevel",level);
         SceneManager.LoadScene("Scenes_P/InGameScene");
     }
 
-    public void exitBtn(int num)
+    public void exit_Btn_SeletMap()
     {
         popupBackGround.SetActive(false);
-        
-        PopUps[num].SetActive(false);
-
-        if (num == 2)
+        for (int i = 0; i < PopUps.Count; i++)
         {
-            for (int i = 0; i < target_panels.Length; i++)
-            {
-                target_panels[i].SetActive(false);
-            }
+            PopUps[i].SetActive(false);
         }
     }
+
+    public void NextLevel()
+    {
+        // 여기엔 캐릭터가 다음 스테이지로 이동하는 애니메이션 실행할것
+    }
+    
 
     #endregion
 

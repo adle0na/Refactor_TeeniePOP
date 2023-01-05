@@ -12,6 +12,7 @@ public class StageController : MonoBehaviour
 
     void Awake()
     {
+        // 0: SelectMap 1: InGame
         for (int i = 0; i < inGameCanvas.Count; i++)
         {
             if(i != PlayerPrefs.GetInt("InGameState"))

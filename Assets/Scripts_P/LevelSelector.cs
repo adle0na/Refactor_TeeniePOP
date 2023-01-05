@@ -36,7 +36,7 @@ public class LevelSelector : MonoBehaviour
         _popUpManager.level = level;
         if (clearState > 0)
         {
-            PlayerPrefs.SetInt("Selected Level", level);
+            PlayerPrefs.SetInt("SelectedLevel", level);
             _popUpManager.Target_info(level);
         }
         else
