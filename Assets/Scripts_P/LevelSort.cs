@@ -21,7 +21,7 @@ public class LevelSort : MonoBehaviour
         {
             Levels[i].GetComponentInChildren<TextMeshProUGUI>().text = (i + 1).ToString();
 
-            Levels[i].GetComponent<LevelSelector>().level = i + 1;
+            Levels[i].GetComponent<LevelSelector>().level = i;
         }
         
         // 유저 정보 가져와서 수정할 것

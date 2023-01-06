@@ -117,8 +117,6 @@ public class LevelManager : MonoBehaviour
             
             Targets_Remind[result].SetActive(true);
             Targets_Remind[result].GetComponentInChildren<TextMeshProUGUI>().text = targetIndex[id2].ToString();
-            // Targets_Remind[result].GetComponent<Target>()._TargetAnim.SetInteger
-                // ("ID", Targets_Remind[i].GetComponent<Target>().Target_ID);
         }
 
         StartCoroutine(TargetRemind());

@@ -33,11 +33,10 @@ public class LevelSelector : MonoBehaviour
 
     public void OpenGameinfoUI()
     {
-        _popUpManager.level = level;
         if (clearState > 0)
         {
             PlayerPrefs.SetInt("SelectedLevel", level);
-            _popUpManager.Target_info(level);
+            _popUpManager.Target_info();
         }
         else
             return;

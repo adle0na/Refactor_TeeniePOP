@@ -10,15 +10,28 @@ public class StageController : MonoBehaviour
 
     [SerializeField] private List<GameObject> inGameCanvas;
 
+    [SerializeField] private List<GameObject> levelMap;
+
     void Awake()
     {
         // 0: SelectMap 1: InGame
         for (int i = 0; i < inGameCanvas.Count; i++)
         {
-            if(i != PlayerPrefs.GetInt("InGameState"))
-                inGameCanvas[i].SetActive(false);
-            else if(i == PlayerPrefs.GetInt("InGameState"))
-                inGameCanvas[i].SetActive(true);
+            switch (PlayerPrefs.GetInt("InGameState"))
+            {
+                case 0:
+                    inGameCanvas[0].SetActive(true);
+
+                    levelMap[0].SetActive(false);
+                    inGameCanvas[1].SetActive(false);
+                    break;
+                case 1:
+                    inGameCanvas[0].SetActive(false);
+
+                    levelMap[0].SetActive(true);
+                    inGameCanvas[1].SetActive(true);
+                    break;
+            }
         }
     }
 }   

@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class PopUpManager : MonoBehaviour
 {
+    [SerializeField] private LevelData levelDB;
+    
     [Header("User Valuse")]
     [SerializeField]
     private List<GameObject> topIcons;
@@ -26,7 +28,7 @@ public class PopUpManager : MonoBehaviour
     
     private Heart _heart;
     
-    public GameObject[] target_panels;
+    public GameObject[] info_targets;
     
     public TextMeshProUGUI currentLevel_txt;
 
@@ -42,10 +44,10 @@ public class PopUpManager : MonoBehaviour
     private void Awake()
     {
         clear_text[1].text = (PlayerPrefs.GetFloat("CurrentScore") * 0.015f).ToString("000");
-        clear_text[2].text = PlayerPrefs.GetFloat("CurrentScore").ToString() + "점";
+        clear_text[2].text = PlayerPrefs.GetFloat("CurrentScore") + "점";
         if (PlayerPrefs.GetInt("ClearCheck") == 1)
         {
-            clear_text[0].text = "레벨 " + (PlayerPrefs.GetInt("Selected Level") + " 성공!");
+            clear_text[0].text = "레벨 " + (PlayerPrefs.GetInt("SelectedLevel") + 1) + " 성공!";
             popupBackGround.SetActive(true);
             PopUps[0].SetActive(true);
             PlayerPrefs.SetInt("ClearCheck", 0);
@@ -54,14 +56,22 @@ public class PopUpManager : MonoBehaviour
 
     #region 팝업 버튼
 
-    public void Target_info(int _level)
+    public void Target_info()
     {
-        _level = level;
-        
+        level = PlayerPrefs.GetInt("SelectedLevel");
         popupBackGround.SetActive(true);
         PopUps[2].SetActive(true);
-        currentLevel_txt.text = "레벨" + (level);
-        target_panels[_level].SetActive(true);
+        string[] targets      = levelDB.Sheet1[level].targets.Split(", ");
+        currentLevel_txt.text = "레벨" + (level + 1);
+
+        for (int i = 0; i < targets.Length; i++)
+        {
+            int result;
+            int.TryParse(targets[i], out result);
+
+            info_targets[result].SetActive(true);
+        }
+
     }
 
     public void PlayBtn()
@@ -77,6 +87,11 @@ public class PopUpManager : MonoBehaviour
         for (int i = 0; i < PopUps.Count; i++)
         {
             PopUps[i].SetActive(false);
+        }
+
+        for (int i = 0; i < info_targets.Length; i++)
+        {
+            info_targets[i].SetActive(false);
         }
     }
 
