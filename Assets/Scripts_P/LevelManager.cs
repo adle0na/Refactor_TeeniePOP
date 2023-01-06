@@ -4,6 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine.Serialization;
 using UnityEngine.SceneManagement;
 
@@ -21,8 +22,6 @@ public class LevelManager : MonoBehaviour
     private Target _target;
     // 체인 블록
     private Bomb   _bomb;
-    // 티니핑 인덱스 검색인자 ( 추후 형 변환 리팩토링할것)
-    private string _selectID;
     // 플레이 체크
     private bool   _isPlaying = true;
     // 승리 체크
@@ -124,7 +123,7 @@ public class LevelManager : MonoBehaviour
     
     void Update()
     {
-        LineRendererUpdate();
+        //LineRendererUpdate();
     }
     
     // 라인 렌더러 설정
@@ -200,41 +199,38 @@ public class LevelManager : MonoBehaviour
         // 예외처리
         if (!_isPlaying) return;
         
-        // 선택된 티니핑들을 tping 값에 넣음
         _selectPings.Add(tping);
         tping.SetIsSelect(true);
-        
-        _selectID = tping.ID;
     }
     
     // 드래그
     public void PingEnter(Tping tping)
     {
-        // 예외처리
-        if (!_isPlaying) return;
-        if (_selectID != tping.ID) return;
-        
-        // 티니핑 선택시
-        if (tping.IsSelect)
-        {
-            if (_selectPings.Count >= 2 && _selectPings[_selectPings.Count - 2] == tping)
-            {
-                var RemoveTping = _selectPings[_selectPings.Count - 1];
-                RemoveTping.SetIsSelect(false);
-                _selectPings.Remove(RemoveTping);
-            }
-        }
-        // 주변 선택시
-        else
-        {
-            var length = (_selectPings[_selectPings.Count - 1].transform.position
-                          - tping.transform.position).magnitude;
-            if (length < TpingConnectRange)
-            {
-                _selectPings.Add(tping);
-                tping.SetIsSelect(true);
-            }
-        }
+        // // 예외처리
+        // if (!_isPlaying) return;
+        // if (_selectID != tping.ID) return;
+        //
+        // // 티니핑 선택시
+        // if (tping.IsSelect)
+        // {
+        //     if (_selectPings.Count >= 2 && _selectPings[_selectPings.Count - 2] == tping)
+        //     {
+        //         var RemoveTping = _selectPings[_selectPings.Count - 1];
+        //         RemoveTping.SetIsSelect(false);
+        //         _selectPings.Remove(RemoveTping);
+        //     }
+        // }
+        // // 주변 선택시
+        // else
+        // {
+        //     var length = (_selectPings[_selectPings.Count - 1].transform.position
+        //                   - tping.transform.position).magnitude;
+        //     if (length < TpingConnectRange)
+        //     {
+        //         _selectPings.Add(tping);
+        //         tping.SetIsSelect(true);
+        //     }
+        // }
     }
     
     // 선택 종료
@@ -272,8 +268,7 @@ public class LevelManager : MonoBehaviour
             foreach (var tpingItem in _selectPings)
                 tpingItem.SetIsSelect(false);
         }
-
-        _selectID = "";
+        
         _selectPings.Clear();
     }
     
@@ -343,7 +338,7 @@ public class LevelManager : MonoBehaviour
     {
         foreach(var tpingItem in tpings)
         {
-            var index = int.Parse(tpingItem.ID);
+            var index = tpingItem.ID;
 
             if (targetIndex[index] > 0)
                 targetIndex[index]--;
@@ -432,7 +427,8 @@ public class LevelManager : MonoBehaviour
         InGamePopUps[3].SetActive(false);
         InGamePopUps[4].SetActive(true);
     }
-
+    
+    
 
     #endregion
 }
