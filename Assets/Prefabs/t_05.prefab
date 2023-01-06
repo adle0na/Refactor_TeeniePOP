@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1005325696924542047}
   - component: {fileID: 5140421238977638992}
   - component: {fileID: 5239110874969031390}
+  - component: {fileID: -6581595565530496388}
   m_Layer: 0
   m_Name: t_05
   m_TagString: 05
@@ -143,6 +144,7 @@ MonoBehaviour:
   SelectSprite: {fileID: 4219259150233896096}
   clearEffect: {fileID: 1842551476139572431}
   clearAnim: {fileID: 5239110874969031390}
+  _activeRange: {fileID: 0}
 --- !u!95 &5239110874969031390
 Animator:
   serializedVersion: 4
@@ -163,6 +165,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &-6581595565530496388
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027496237245126598}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.2
 --- !u!1 &4219259150233896096
 GameObject:
   m_ObjectHideFlags: 0

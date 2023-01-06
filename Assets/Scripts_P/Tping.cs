@@ -53,32 +53,34 @@ public class Tping : MonoBehaviour
         SelectSprite.SetActive(isSelect);
     }
 
+    /*
     public void OnCollisionStay2D(Collision2D collision)
     {
         if (IsSelect)
         {
-            List<Tping> _SelectedPings = new List<Tping>();
-            
             Tping other = collision.gameObject.GetComponent<Tping>();
 
-            if (LevelManager.Instance._selectPings.Count < 20)
+            if (other.ID == LevelManager.Instance._selectPings[0].ID && !LevelManager.Instance._selectPings.Contains(other))
             {
-                _SelectedPings.Add(other);
-            }
-            else
-            {
-                return;
-            }
-            
-            for (int i = 0; i < _SelectedPings.Count; i++)
-            {
-                if (_SelectedPings[i].ID == LevelManager.Instance._selectPings[0].ID && !_SelectedPings[i].IsSelect)
-                {
-                    LevelManager.Instance._selectPings.Add(_SelectedPings[i]);
-                    _SelectedPings[i].IsSelect = false;
-                }
+                LevelManager.Instance._selectPings.Add(other);
+                other.SetIsSelect(true);
             }
         }
 
+    }
+    */
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (IsSelect)
+        {
+            Tping other = collision.gameObject.GetComponent<Tping>();
+
+            if (other.ID == LevelManager.Instance._selectPings[0].ID && !LevelManager.Instance._selectPings.Contains(other))
+            {
+                LevelManager.Instance._selectPings.Add(other);
+                other.SetIsSelect(true);
+            }
+        }
     }
 }
