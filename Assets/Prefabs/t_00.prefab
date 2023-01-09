@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 4594097462040223661}
   - component: {fileID: 4328417048573607282}
   - component: {fileID: 70974020452055616}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: t_00
-  m_TagString: 00
+  m_TagString: Tping
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1023565248999142283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4167270120989046620}
@@ -128,7 +128,6 @@ MonoBehaviour:
   SelectSprite: {fileID: 6613115502238908329}
   clearEffect: {fileID: 4167270120989046623}
   clearAnim: {fileID: 4328417048573607282}
-  _activeRange: {fileID: 0}
 --- !u!58 &4594097462040223661
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -282,15 +281,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3251596011330343049, guid: a40751ba545a72c4bb22b8e562978f82, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.5185509
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3251596011330343049, guid: a40751ba545a72c4bb22b8e562978f82, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.5185516
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3251596011330343049, guid: a40751ba545a72c4bb22b8e562978f82, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.5185516
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3251596011330343049, guid: a40751ba545a72c4bb22b8e562978f82, type: 3}
       propertyPath: m_LocalPosition.x

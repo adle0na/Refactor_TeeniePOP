@@ -3,19 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bomb
+  - Tping
+  - 00
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - 0
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
   - 
   - 
   - 

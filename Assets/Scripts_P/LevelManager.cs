@@ -69,7 +69,8 @@ public class LevelManager : MonoBehaviour
     private float        BombDestroyRange  = 1.5f;
     // 연결 사용 감소 횟수
     private int          CalDragPoint      = 1;
-    
+
+    public int _selectedID;
     // 제한 횟수
     [HideInInspector]
     public int DragPoint;
@@ -198,7 +199,7 @@ public class LevelManager : MonoBehaviour
     {
         // 예외처리
         if (!_isPlaying) return;
-        
+        _selectedID = tping.ID;
         _selectPings.Add(tping);
         tping.SetIsSelect(true);
     }
@@ -242,14 +243,6 @@ public class LevelManager : MonoBehaviour
         
         if (selectN >= TpingDestroyCount)
         {
-            SubsDragPoint();
-
-            foreach (var index in _selectPings)
-            {
-                index.clearAnim.SetBool("Cleared", true);
-                index.clearEffect.SetActive(true);
-            }
-
             for (int i = 3; i > 0; i--)
             {
                 if (selectN >= BombSpawnCount + (i - 1))
@@ -259,6 +252,7 @@ public class LevelManager : MonoBehaviour
                 }
 
             }
+            SubsDragPoint();
             // 그 이하는 체인블록 미생성, 연결 블록만 제거
             TargetClear(_selectPings);
             DestroyTpings(_selectPings);
@@ -267,9 +261,9 @@ public class LevelManager : MonoBehaviour
         {
             foreach (var tpingItem in _selectPings)
                 tpingItem.SetIsSelect(false);
+            
+            _selectPings.Clear();
         }
-        
-        _selectPings.Clear();
     }
     
     // 체인블록 사용
@@ -309,16 +303,36 @@ public class LevelManager : MonoBehaviour
     // 블록 파괴시 실행 (점수 증가, 블록 재생성 관리 )
     private void DestroyTpings(List<Tping> tpings)
     {
-        foreach (var tpingItem in tpings)
-        {
-            Destroy(tpingItem.gameObject);
-            _allTpings.Remove(tpingItem);
-        }
-        
+        StartCoroutine(DestroyEffect(tpings));
         TPingSpawn(tpings.Count);
         AddScore(tpings.Count);
     }
-    
+
+    IEnumerator DestroyEffect(List<Tping> tpings)
+    {
+        if (tpings == null)
+            yield break;
+        
+        for (int i = 0; i < tpings.Count; i++)
+        {
+            tpings[i].SelectSprite.SetActive(false);
+            tpings[i].clearEffect.SetActive(true);
+            tpings[i].clearAnim.SetBool("Cleared", true);
+        }
+
+        yield return new WaitForSeconds(0.3f);
+        
+        for(int i = 0; i < tpings.Count; i++)
+        {
+            Destroy(tpings[i].gameObject);
+            _allTpings.Remove(tpings[i]);
+        }
+
+        tpings.Clear();
+        
+        yield break;
+    }
+
     // 점수 증가
     private void AddScore(int tpingCount)
     {

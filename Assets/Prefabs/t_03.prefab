@@ -99,9 +99,9 @@ GameObject:
   - component: {fileID: 6195657555287610346}
   - component: {fileID: 4104371574262753335}
   - component: {fileID: 2486593368874422117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: t_03
-  m_TagString: 06
+  m_TagString: Tping
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 8760695506006637180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3401433696875989387}
