@@ -72,7 +72,7 @@ public class Tping : MonoBehaviour
         if (IsSelect)
         {
             if (collision.CompareTag("Tping"))
-            {
+            { 
                 Tping other = collision.gameObject.GetComponent<Tping>();
 
                 if (other.ID == LevelManager.Instance._selectedID &&

@@ -18,6 +18,10 @@ public class LevelManager : MonoBehaviour
     // 티니핑 선택 배열
     [Header("선택된 블록")]
     public List<Tping> _selectPings = new List<Tping>();
+
+    [Header("파괴되는 블록")]
+    public List<Tping> _erasePings  = new List<Tping>();
+    
     // 타겟 정보
     private Target _target;
     // 체인 블록
@@ -186,7 +190,7 @@ public class LevelManager : MonoBehaviour
             new Vector3(transform.localScale.x * size,
                 transform.localScale.y * size,
                 transform.localScale.z * size);
-        Instantiate(BombPrefab, _selectPings[_selectPings.Count -1].transform.position, Quaternion.identity);
+        Instantiate(BombPrefab, _selectPings[0].transform.position, Quaternion.identity);
         Bomb.BInstance._bombAnim.SetInteger("Bomb_num", num);
         Bomb.BInstance.bomb_num = num;
     }
@@ -243,11 +247,11 @@ public class LevelManager : MonoBehaviour
         
         if (selectN >= TpingDestroyCount)
         {
-            for (int i = 3; i > 0; i--)
+            for (int i = 3; i > 0; i--) 
             {
-                if (selectN >= BombSpawnCount + (i - 1))
+                if (selectN >= BombSpawnCount + (i * 2) - 2)
                 {
-                    MakeBomb(i, (0.3f * i + 2));
+                    MakeBomb(i, (i * 0.01f));
                     break;
                 }
 
@@ -267,41 +271,43 @@ public class LevelManager : MonoBehaviour
     }
     
     // 체인블록 사용
-    public void BombDown(Bomb bomb)
+    public void BombDown(Bomb bomb) 
     {
         // 플레이 체크
         if (!_isPlaying) return;
         
-        var RemoveTpings = new List<Tping>();
+        #region 폭탄 기능 백업
         
-        foreach (var TpingItem in _allTpings)
-        {
-            var Length = (TpingItem.transform.position - bomb.transform.position).magnitude;
-            // 체인블록 상태 검증 [ 크기, 특수블록 레벨 ]
-            switch (bomb.bomb_num)
-            {
-                case 1:
-                    if (Length < (BombDestroyRange + bomb.level))
-                        RemoveTpings.Add(TpingItem);
-                    break;
-                case 2:
-                    if (Length < (BombDestroyRange + bomb.level))
-                        RemoveTpings.Add(TpingItem);
-                    break;
-                case 3:
-                    if (Length < (BombDestroyRange * 1.5f) + bomb.level)
-                        RemoveTpings.Add(TpingItem);
-                    break;
-            }
-        }
+        // foreach (var TpingItem in _allTpings)
+        // {
+        //     var Length = (TpingItem.transform.position - bomb.transform.position).magnitude;
+        //     // 체인블록 상태 검증 [ 크기, 특수블록 레벨 ]
+        //     switch (bomb.bomb_num)
+        //     {
+        //         case 1:
+        //             if (Length < (BombDestroyRange + bomb.level))
+        //                 RemoveTpings.Add(TpingItem);
+        //             break;
+        //         case 2:
+        //             if (Length < (BombDestroyRange + bomb.level))
+        //                 RemoveTpings.Add(TpingItem);
+        //             break;
+        //         case 3:
+        //             if (Length < (BombDestroyRange * 1.5f) + bomb.level)
+        //                 RemoveTpings.Add(TpingItem);
+        //             break;
+        //     }
+        // }
         
-        TargetClear(RemoveTpings);
-        DestroyTpings(RemoveTpings);
+        #endregion
+        
+        //TargetClear(RemoveTpings);
+        //DestroyTpings(RemoveTpings);
         Destroy(bomb.gameObject);
     }
     
     // 블록 파괴시 실행 (점수 증가, 블록 재생성 관리 )
-    private void DestroyTpings(List<Tping> tpings)
+    public void DestroyTpings(List<Tping> tpings)
     {
         StartCoroutine(DestroyEffect(tpings));
         TPingSpawn(tpings.Count);
@@ -320,7 +326,7 @@ public class LevelManager : MonoBehaviour
             tpings[i].clearAnim.SetBool("Cleared", true);
         }
 
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         
         for(int i = 0; i < tpings.Count; i++)
         {
@@ -410,7 +416,7 @@ public class LevelManager : MonoBehaviour
         InGamePopUpBG.SetActive(false);
         InGamePopUps[0].SetActive(false);
         
-        TPingSpawn(40);
+        TPingSpawn(60);
     }
 
     public void BacktoLevelSelectMap(int state)

@@ -6,11 +6,15 @@ using UnityEngine.Experimental.Playables;
 
 public class Bomb : MonoBehaviour
 {
-    [HideInInspector]
+    [SerializeField]
+    private GameObject[] laser;
+    
+    [SerializeField]
+    private Transform pos;
+    
     // 특수 블록 크기
     public int bomb_num;
     
-    [HideInInspector]
     // 특수블록 단계
     public int level;
     
@@ -47,6 +51,8 @@ public class Bomb : MonoBehaviour
     private void OnMouseDown()
     {
         LevelManager.Instance.BombDown(this);
+        
+        Instantiate(laser[level], pos.position, transform.rotation);
     }
 
     // 폭탄끼리 접촉 이벤트
