@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
+using InGameScene;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
@@ -33,7 +34,7 @@ public class LevelManager : MonoBehaviour
     // 점수 값
     private int    _Score = 0;
 
-    private int level;
+    public int    level;
     
     private LevelSort _sort;
 
@@ -391,7 +392,20 @@ public class LevelManager : MonoBehaviour
             InGamePopUpBG.SetActive(true);
             InGamePopUps[2].SetActive(true);
             PlayerPrefs.SetFloat("CurrentScore", (float)_Score);
-            PlayerPrefs.SetInt("ClearCheck", 1);
+
+            if ((level + 1) > PlayerPrefs.GetInt("BestLevel"))
+            {
+                PlayerPrefs.SetInt("BestLevel", (level + 1));
+                PlayerPrefs.SetInt("CurrentClearLevel", level);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("CurrentClearLevel", level);
+            }
+            
+            
+
+            
             remain = 0;
         }
         

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7295117042402097766}
   - component: {fileID: 7295117042402097761}
   - component: {fileID: 3507938015771780921}
-  - component: {fileID: 4029456984160159678}
   - component: {fileID: 3913452560159482823}
+  - component: {fileID: 7884898664522669023}
   m_Layer: 0
   m_Name: sprite_FX_ray_02
   m_TagString: Laser
@@ -99,27 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6801c7a85ab4b4d9caff8481501a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &4029456984160159678
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7295117042402097767}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &3913452560159482823
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,7 +111,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,8 +123,29 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.5}
+  m_Size: {x: 0.5, y: 0.2}
   m_EdgeRadius: 0
+--- !u!50 &7884898664522669023
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295117042402097767}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7295117043900203747
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7295117043900203746}
   - component: {fileID: 7295117043900203757}
+  - component: {fileID: 3257318081363095882}
   m_Layer: 0
   m_Name: FX_Ray_line_BLUE
   m_TagString: Laser
@@ -200,6 +201,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &3257318081363095882
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295117043900203747}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7295117044316881397
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,8 +233,8 @@ GameObject:
   - component: {fileID: 7295117044316881399}
   - component: {fileID: 7295117044316881396}
   - component: {fileID: 5441103934842533309}
-  - component: {fileID: 6961649839144500955}
   - component: {fileID: 1600374825844804654}
+  - component: {fileID: 6197473983705312040}
   m_Layer: 0
   m_Name: sprite_FX_ray_01
   m_TagString: Laser
@@ -299,27 +321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6801c7a85ab4b4d9caff8481501a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &6961649839144500955
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7295117044316881397}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &1600374825844804654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -332,7 +333,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,5 +345,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.5}
+  m_Size: {x: 0.5, y: 0.2}
   m_EdgeRadius: 0
+--- !u!50 &6197473983705312040
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7295117044316881397}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

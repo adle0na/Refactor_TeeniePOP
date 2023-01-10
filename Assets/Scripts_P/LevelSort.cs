@@ -13,6 +13,7 @@ public class LevelSort : MonoBehaviour
     public GameObject[] Levels;
 
     private LevelManager _levelManager;
+    
     private void Awake()
     {
         Levels[0].GetComponent<LevelSelector>().clearState = 1;
@@ -25,8 +26,23 @@ public class LevelSort : MonoBehaviour
         }
         
         // 유저 정보 가져와서 수정할 것
-        for (int i = 0; i <= PlayerPrefs.GetInt("CurrentLevel"); i++)
-            Levels[i].GetComponent<LevelSelector>().clearState = 1;
+        for (int i = 0; i <= PlayerPrefs.GetInt("BestLevel"); i++)
+        {
+            if (PlayerPrefs.GetInt("BestLevel") > 4)
+            {
+                PlayerPrefs.SetInt("BestLevel", 4);
+            }
+            
+            if (PlayerPrefs.GetInt("BestLevel") == 0)
+            {
+                Levels[0].GetComponent<LevelSelector>().clearState = 1;
+            }
+            else
+            {
+                Levels[i].GetComponent<LevelSelector>().clearState = 1;
+            }
+        }
+            
     }
     
 }

@@ -17,6 +17,8 @@ public class Effect : MonoBehaviour
 
     public void OnEndEvent()
     {
+        LevelManager.Instance.TargetClear(LevelManager.Instance._erasePings);
+        LevelManager.Instance.DestroyTpings(LevelManager.Instance._erasePings);
         Destroy(this._effect);
     }
 }

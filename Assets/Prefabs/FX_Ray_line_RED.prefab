@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 518256443218301356}
   - component: {fileID: 518256443218301357}
   - component: {fileID: 7966448744291896727}
+  - component: {fileID: 3724098937908278392}
+  - component: {fileID: 6030160599981704540}
   m_Layer: 0
   m_Name: FX_Ray_line_RED
   m_TagString: Laser
@@ -45,7 +47,7 @@ Animator:
   m_GameObject: {fileID: 518256443218301358}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7d3bcd31ed6703349b4073fa12258eb8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6351c209dd9c016488b1e5326f1a6060, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -68,6 +70,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _effect: {fileID: 518256443218301358}
+--- !u!50 &3724098937908278392
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518256443218301358}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &6030160599981704540
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518256443218301358}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &518256443812121096
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,8 +124,8 @@ GameObject:
   - component: {fileID: 518256443812121095}
   - component: {fileID: 518256443812121094}
   - component: {fileID: 7557377049788016753}
-  - component: {fileID: 6076163108979202853}
   - component: {fileID: 4402453550829923772}
+  - component: {fileID: 8130071348137025735}
   m_Layer: 0
   m_Name: sprite_FX_ray_01
   m_TagString: Laser
@@ -167,27 +212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6801c7a85ab4b4d9caff8481501a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &6076163108979202853
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518256443812121096}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &4402453550829923772
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -200,7 +224,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,8 +236,29 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.5}
+  m_Size: {x: 0.5, y: 0.2}
   m_EdgeRadius: 0
+--- !u!50 &8130071348137025735
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518256443812121096}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &518256444149634948
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,8 +270,8 @@ GameObject:
   - component: {fileID: 518256444149634947}
   - component: {fileID: 518256444149634946}
   - component: {fileID: 7959790877939369988}
-  - component: {fileID: 7903183163567521746}
   - component: {fileID: 4885467199026515774}
+  - component: {fileID: 5411698569650082917}
   m_Layer: 0
   m_Name: sprite_FX_ray_02
   m_TagString: Laser
@@ -313,27 +358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6801c7a85ab4b4d9caff8481501a8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &7903183163567521746
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518256444149634948}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &4885467199026515774
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -346,7 +370,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,5 +382,26 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.5}
+  m_Size: {x: 0.5, y: 0.2}
   m_EdgeRadius: 0
+--- !u!50 &5411698569650082917
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518256444149634948}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
