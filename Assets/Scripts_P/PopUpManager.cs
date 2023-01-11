@@ -52,6 +52,8 @@ public class PopUpManager : MonoBehaviour
             PopUps[0].SetActive(true);
             PlayerPrefs.SetInt("ClearCheck", 0);
         }
+        
+        // 획득한 동전양 비례하여 이펙트 실행
     }
 
     #region 팝업 버튼

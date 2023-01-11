@@ -11,35 +11,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private LevelData levelDB;
-    
-    // 전체 티니핑 관리 배열
-    [Header("전체 블록")]
-    public List<Tping> _allTpings   = new List<Tping>();
-    // 티니핑 선택 배열
-    [Header("선택된 블록")]
-    public List<Tping> _selectPings = new List<Tping>();
-
-    [Header("파괴되는 블록")]
-    public List<Tping> _erasePings  = new List<Tping>();
-    
-    // 타겟 정보
-    private Target _target;
-    // 체인 블록
-    private Bomb   _bomb;
-    // 플레이 체크
-    public bool   _isPlaying;
-    // 승리 체크
-    private bool   _isClear = false;
-    // 점수 값
-    private int    _Score = 0;
-
-    public int    level;
-    
-    private LevelSort _sort;
-
     // 싱글톤 사용
     public static LevelManager Instance { get; private set; }
+    
+    #region Serialize변수
+
+    [SerializeField] private LevelData levelDB;
     
     // 티니핑 프리팹 배열 ( 현재 샘플로 과일 사용중 )
     [SerializeField]
@@ -64,22 +41,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameObject      InGamePopUpBG;
     
-    // 최소 연결 횟수
-    private int          TpingDestroyCount = 3;
-    // 연결 범위
-    private float        TpingConnectRange = 1.1f;
-    // 체인블록 최소 생성 카운트
-    private int          BombSpawnCount    = 5;
-    // 폭발 범위
-    private float        BombDestroyRange  = 1.5f;
-    // 연결 사용 감소 횟수
-    private int          CalDragPoint      = 1;
-
-    public int _selectedID;
-    // 제한 횟수
-    [HideInInspector]
-    public int DragPoint;
-    
     [Header("목표(상단바)")]
     [SerializeField]
     private GameObject[] Targets_Top;
@@ -91,7 +52,61 @@ public class LevelManager : MonoBehaviour
     [Header("목표 값")]
     [SerializeField]
     private int[] targetIndex = new int[6];
+    
+    #endregion
+    
+    #region 숨김 변수 (public)
+    
+    // 전체 티니핑 관리 배열
+    [Header("전체 블록")]
+    public List<Tping> _allTpings   = new List<Tping>();
+    // 티니핑 선택 배열
+    [Header("선택된 블록")]
+    public List<Tping> _selectPings = new List<Tping>();
 
+    [Header("파괴되는 블록")]
+    public List<Tping> _erasePings  = new List<Tping>();
+    
+    // 선택된 티니핑 ID
+    [HideInInspector]
+    public int          _selectedID;
+    // 플레이 체크
+    [HideInInspector]
+    public bool   _isPlaying;
+    // 제한 횟수
+    [HideInInspector]
+    public int DragPoint;
+    
+    #endregion
+
+    #region Private 변수
+    
+    // 타겟 정보
+    private Target _target;
+    // 체인 블록
+    private Bomb   _bomb;
+    // 승리 체크
+    private bool   _isClear = false;
+    // 점수 값
+    private int    _Score = 0;
+
+    private int    level;
+    
+    private LevelSort _sort;
+    
+    // 최소 연결 횟수
+    private int          TpingDestroyCount = 3;
+    // 연결 범위
+    private float        TpingConnectRange = 1.1f;
+    // 체인블록 최소 생성 카운트
+    private int          BombSpawnCount    = 5;
+    // 폭발 범위
+    private float        BombDestroyRange  = 1.5f;
+    // 연결 사용 감소 횟수
+    private int          CalDragPoint      = 1;
+
+    #endregion
+    
     // 나중에 스테이지 시작 함수로 변경할것
     void Awake()
     {
@@ -126,7 +141,9 @@ public class LevelManager : MonoBehaviour
 
         StartCoroutine(TargetRemind());
     }
-    
+
+    #region 미사용 함수
+
     void Update()
     {
         //LineRendererUpdate();
@@ -145,6 +162,8 @@ public class LevelManager : MonoBehaviour
         // }
         // else LineRenderer.gameObject.SetActive(false);
     }
+
+    #endregion
     
     // 생성 관리 함수
     private void TPingSpawn(int count)
@@ -195,7 +214,6 @@ public class LevelManager : MonoBehaviour
         Bomb.BInstance._bombAnim.SetInteger("Bomb_num", num);
         Bomb.BInstance.bomb_num = num;
     }
-    
     
     #region 마우스 인풋 함수
     
@@ -398,6 +416,7 @@ public class LevelManager : MonoBehaviour
             _isClear = true;
             InGamePopUpBG.SetActive(true);
             InGamePopUps[2].SetActive(true);
+            PlayerPrefs.SetInt("ClearCheck", 1);
             PlayerPrefs.SetFloat("CurrentScore", (float)_Score);
 
             if ((level + 1) > PlayerPrefs.GetInt("BestLevel"))

@@ -17,27 +17,27 @@ MonoBehaviour:
     spawnPing: 0, 1, 2
     targets: '0, 1 '
     targetValue: 10, 10
-    drag: 5
+    drag: 8
   - level: 2
     spawnPing: 0, 1, 2, 3
     targets: 1, 2, 3
     targetValue: 10, 20, 25
-    drag: 8
+    drag: 10
   - level: 3
     spawnPing: 0, 1, 2, 3, 5
     targets: 0, 5
     targetValue: 20, 30
-    drag: 12
+    drag: 15
   - level: 4
     spawnPing: 1, 2, 4, 5
     targets: 4
     targetValue: 50
-    drag: 10
+    drag: 20
   - level: 5
     spawnPing: 0, 1, 2, 3, 4
     targets: 1, 2, 3, 4
     targetValue: 15, 15, 20, 20
-    drag: 8
+    drag: 15
   - level: 6
     spawnPing: 
     targets: 

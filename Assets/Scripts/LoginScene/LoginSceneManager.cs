@@ -73,7 +73,7 @@ public class LoginSceneManager : MonoBehaviour {
                 Debug.Log("GoogleId - " + Social.localUser.id);
                 Debug.Log("UserName - " + Social.localUser.userName);
                 Debug.Log("UserName - " + PlayGamesPlatform.Instance.GetUserDisplayName());
-                OnClickGPGSLogin();
+                GPGSLogin();
             });
         }
     }
