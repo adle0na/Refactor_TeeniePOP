@@ -20,6 +20,7 @@ public class Tping : MonoBehaviour
     private Rigidbody2D      _rigid;
     private CircleCollider2D _circle;
 
+    public bool isBoom;
     private void Awake()
     {
         _rigid  = GetComponent<Rigidbody2D>();
@@ -50,29 +51,12 @@ public class Tping : MonoBehaviour
         SelectSprite.SetActive(isSelect);
     }
 
-    /*
-    public void OnCollisionStay2D(Collision2D collision)
-    {
-        if (IsSelect)
-        {
-            Tping other = collision.gameObject.GetComponent<Tping>();
-
-            if (other.ID == LevelManager.Instance._selectPings[0].ID && !LevelManager.Instance._selectPings.Contains(other))
-            {
-                LevelManager.Instance._selectPings.Add(other);
-                other.SetIsSelect(true);
-            }
-        }
-
-    }
-    */
-
-    public void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (IsSelect)
         {
             if (collision.CompareTag("Tping"))
-            { 
+            {
                 Tping other = collision.gameObject.GetComponent<Tping>();
 
                 if (other.ID == LevelManager.Instance._selectedID &&
@@ -82,8 +66,6 @@ public class Tping : MonoBehaviour
                     other.SetIsSelect(true);
                 }
             }
-            else
-                return;
         }
     }
 }

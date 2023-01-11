@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5140421238977638992}
   - component: {fileID: 5239110874969031390}
   - component: {fileID: -6581595565530496388}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: t_05
   m_TagString: Tping
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: b2e2892217e35f84eb733459c72865ea, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &5140421238977638992
@@ -144,7 +144,6 @@ MonoBehaviour:
   SelectSprite: {fileID: 4219259150233896096}
   clearEffect: {fileID: 1842551476139572431}
   clearAnim: {fileID: 5239110874969031390}
-  _activeRange: {fileID: 0}
 --- !u!95 &5239110874969031390
 Animator:
   serializedVersion: 4

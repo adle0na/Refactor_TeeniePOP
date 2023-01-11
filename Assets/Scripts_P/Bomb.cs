@@ -17,6 +17,8 @@ public class Bomb : MonoBehaviour
     
     // 특수블록 단계
     public int level;
+
+    private bool isBoom;
     
     [HideInInspector]
     // 스테이트 체크
@@ -50,6 +52,10 @@ public class Bomb : MonoBehaviour
     // 클릭 이벤트 체크
     private void OnMouseDown()
     {
+        if (isBoom) return;
+            
+        isBoom = true;
+        
         LevelManager.Instance.BombDown(this);
         
         Instantiate(laser[level], pos.position, transform.rotation);

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4594097462040223661}
   - component: {fileID: 4328417048573607282}
   - component: {fileID: 70974020452055616}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: t_00
   m_TagString: Tping
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: b2e2892217e35f84eb733459c72865ea, type: 2}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &3350061969004537437

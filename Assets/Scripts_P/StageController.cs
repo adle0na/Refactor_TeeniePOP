@@ -30,6 +30,8 @@ public class StageController : MonoBehaviour
 
                     levelMap[0].SetActive(true);
                     inGameCanvas[1].SetActive(true);
+
+                    LevelManager.Instance._isPlaying = true;
                     break;
             }
         }

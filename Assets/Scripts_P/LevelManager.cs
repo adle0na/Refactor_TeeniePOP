@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
     // 체인 블록
     private Bomb   _bomb;
     // 플레이 체크
-    private bool   _isPlaying = true;
+    public bool   _isPlaying;
     // 승리 체크
     private bool   _isClear = false;
     // 점수 값
@@ -135,15 +135,15 @@ public class LevelManager : MonoBehaviour
     // 라인 렌더러 설정
     private void LineRendererUpdate()
     {
-        if (_selectPings.Count >= 2)
-        {
-            LineRenderer.positionCount = _selectPings.Count;
-
-            LineRenderer.SetPositions(_selectPings.Select(tping => tping.transform.position).ToArray());
-            
-            LineRenderer.gameObject.SetActive(true);
-        }
-        else LineRenderer.gameObject.SetActive(false);
+        // if (_selectPings.Count >= 2)
+        // {
+        //     LineRenderer.positionCount = _selectPings.Count;
+        //
+        //     LineRenderer.SetPositions(_selectPings.Select(tping => tping.transform.position).ToArray());
+        //     
+        //     LineRenderer.gameObject.SetActive(true);
+        // }
+        // else LineRenderer.gameObject.SetActive(false);
     }
     
     // 생성 관리 함수
@@ -204,9 +204,13 @@ public class LevelManager : MonoBehaviour
     {
         // 예외처리
         if (!_isPlaying) return;
-        _selectedID = tping.ID;
-        _selectPings.Add(tping);
-        tping.SetIsSelect(true);
+
+        if (!_selectPings.Contains(tping))
+        {
+            _selectedID = tping.ID;
+            _selectPings.Add(tping);
+            tping.SetIsSelect(true);
+        }
     }
     
     // 드래그
@@ -248,6 +252,11 @@ public class LevelManager : MonoBehaviour
         
         if (selectN >= TpingDestroyCount)
         {
+            foreach (var tpingItem in _selectPings)
+            {
+                tpingItem.isBoom = true;
+            }
+            
             for (int i = 3; i > 0; i--) 
             {
                 if (selectN >= BombSpawnCount + (i * 2) - 2)
@@ -255,7 +264,6 @@ public class LevelManager : MonoBehaviour
                     MakeBomb(i, (i * 0.01f));
                     break;
                 }
-
             }
             SubsDragPoint();
             // 그 이하는 체인블록 미생성, 연결 블록만 제거
@@ -265,8 +273,10 @@ public class LevelManager : MonoBehaviour
         else
         {
             foreach (var tpingItem in _selectPings)
+            {
+                tpingItem.isBoom = false;
                 tpingItem.SetIsSelect(false);
-            
+            }
             _selectPings.Clear();
         }
     }
@@ -276,9 +286,7 @@ public class LevelManager : MonoBehaviour
     {
         // 플레이 체크
         if (!_isPlaying) return;
-        
         #region 폭탄 기능 백업
-        
         // foreach (var TpingItem in _allTpings)
         // {
         //     var Length = (TpingItem.transform.position - bomb.transform.position).magnitude;
@@ -300,10 +308,9 @@ public class LevelManager : MonoBehaviour
         //     }
         // }
         
-        #endregion
-        
         //TargetClear(RemoveTpings);
         //DestroyTpings(RemoveTpings);
+        #endregion
         Destroy(bomb.gameObject);
     }
     
@@ -327,7 +334,7 @@ public class LevelManager : MonoBehaviour
             tpings[i].clearAnim.SetBool("Cleared", true);
         }
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         
         for(int i = 0; i < tpings.Count; i++)
         {
@@ -402,10 +409,6 @@ public class LevelManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("CurrentClearLevel", level);
             }
-            
-            
-
-            
             remain = 0;
         }
         
