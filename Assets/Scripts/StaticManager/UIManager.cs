@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -63,16 +64,13 @@ public class UIManager : MonoBehaviour
     // 현재 씬에 UICanvas를 생성한다. 씬이 이동할 경우 없어지며 새로운 UI를 만든다.
     // 생성만 가능하기에 삭제가 가능한 Resources의 오브젝트만 해당 UI로 할당한다.
     // ====================================================================
-    public void OpenUI<T>(string folderPath, Transform parent) where T : BaseUI
-    {
-        if (TryLoadUIObject(folderPath + "/" + typeof(T).Name, parent, out var uiObject) == false)
-        {
-
-            StaticManager.UI.AlertUI.OpenErrorUI(GetType().Name, MethodBase.GetCurrentMethod()?.ToString(),
-                folderPath + "를 찾을 수 없습니다.");
+    public void OpenUI<T>(string folderPath, Transform parent) where T : BaseUI{
+        if (TryLoadUIObject(folderPath + "/"+ typeof(T).Name, parent, out var uiObject) == false) {
+            
+            StaticManager.UI.AlertUI.OpenErrorUI(GetType().Name,MethodBase.GetCurrentMethod()?.ToString(), folderPath + "를 찾을 수 없습니다.");
             return;
         }
-
+        
         uiObject.GetComponent<BaseUI>().OpenUI();
     }
 }
