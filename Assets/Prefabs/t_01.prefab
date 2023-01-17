@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 7126929410845677431}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1592434023543180436}
@@ -128,6 +128,7 @@ MonoBehaviour:
   SelectSprite: {fileID: 7806972374867837702}
   clearEffect: {fileID: 1816105065978002037}
   clearAnim: {fileID: 2278470930668594543}
+  isBoom: 0
 --- !u!58 &5888796169296002210
 CircleCollider2D:
   m_ObjectHideFlags: 0

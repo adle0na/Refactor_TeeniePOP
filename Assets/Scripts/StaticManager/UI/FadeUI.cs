@@ -4,13 +4,19 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FadeUI : MonoBehaviour{
-    
-    private Image _fadeImage;
+public class FadeUI : MonoBehaviour
+{
+
+    private RectTransform _rectTransform;
+    private Image         _fadeImage;
     public delegate void AfterFade(); // 페이드 기능 이용후에 호출되는 대리자 함수
 
-    public void Init() {
+    public void Init()
+    {
+        _rectTransform = gameObject.GetComponent<RectTransform>();
         _fadeImage = gameObject.GetComponent<Image>();
+
+        _rectTransform.sizeDelta = new Vector2(1080, 2280);
     }
 
     public enum FadeType {

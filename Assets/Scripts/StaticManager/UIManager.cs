@@ -1,41 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
+//Copyright 2013-2022 AFI,INC. All right reserved.
+
 using System.Reflection;
+using InGameScene;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public class UIManager : MonoBehaviour
-{
-    [SerializeField] private FadeUI  _fadeUI;
-    [SerializeField] private AlertUI _alertUI;
+public class UIManager : MonoBehaviour {
+    [SerializeField]
+    private FadeUI _fadeUI;
+    [SerializeField]
+    private AlertUI _alertUI;
 
-    public AlertUI AlertUI
-    {
+    // 알림 UI
+    public AlertUI AlertUI {
         get { return _alertUI; }
     }
 
-    public FadeUI FadeUI
-    {
+    //페이드 in/out UI
+    public FadeUI FadeUI {
         get { return _fadeUI; }
     }
 
     [SerializeField] private GameObject _loadingAnimationIcon;
 
-    public void Init()
-    {
+
+    public void Init() {
         AlertUI.Init();
         FadeUI.Init();
         
         AlertUI.gameObject.SetActive(false);
         FadeUI.gameObject.SetActive(false);
         _loadingAnimationIcon.gameObject.SetActive(false);
+
     }
-    
+
     // ====================================================================
     // 오브젝트가 없을 경우, Resources에서 검색하여 생성한다.
     // ====================================================================
-    private bool TryLoadUIObject(string prefabName, Transform parent, out GameObject gameObject)
-    {
+    private bool TryLoadUIObject(string prefabName, Transform parent, out GameObject gameObject) {
         gameObject = null;
 
         string path = $"{prefabName}";
@@ -52,7 +54,7 @@ public class UIManager : MonoBehaviour
 
         return true;
     }
-    
+
     // ====================================================================
     // 로딩 아이콘은 on/off한다.
     // ====================================================================
@@ -73,4 +75,5 @@ public class UIManager : MonoBehaviour
         
         uiObject.GetComponent<BaseUI>().OpenUI();
     }
+
 }

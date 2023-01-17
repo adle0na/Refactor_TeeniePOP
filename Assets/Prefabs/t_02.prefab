@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1155131023577978232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7892379786023983227}
@@ -144,6 +144,7 @@ MonoBehaviour:
   SelectSprite: {fileID: 2289370911619963643}
   clearEffect: {fileID: 9158920558425042266}
   clearAnim: {fileID: 7609803496727745635}
+  isBoom: 0
 --- !u!95 &7609803496727745635
 Animator:
   serializedVersion: 4

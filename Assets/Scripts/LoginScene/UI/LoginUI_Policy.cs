@@ -154,8 +154,7 @@ public class LoginUI_Policy : BaseUI {
             SendQueue.Enqueue(Backend.Android.PutDeviceToken, callback => {
                 if (IsBackendError(callback)) {
                     // StaticManager.UI.OpenWarning("푸시 알람 미처리 안내",
-                    //     "푸시 알람이 정상적으로 처리되지 않았습니다.\n이후 설정에서 푸시 알람을 설정해주시기 바랍니다.", () 
-                            { AfterAccept(); };
+                    //     "푸시 알람이 정상적으로 처리되지 않았습니다.\n이후 설정에서 푸시 알람을 설정해주시기 바랍니다.", () => { AfterAccept(); });
                 }
                 else {
                     AfterAccept();
