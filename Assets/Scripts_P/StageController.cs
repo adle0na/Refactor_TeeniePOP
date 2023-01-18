@@ -12,6 +12,8 @@ public class StageController : MonoBehaviour
 
     [SerializeField] private List<GameObject> levelMap;
 
+    [SerializeField] private BackendGameInfo _gameInfo;
+    
     void Awake()
     {
         // 0: SelectMap 1: InGame
@@ -21,17 +23,25 @@ public class StageController : MonoBehaviour
             {
                 case 0:
                     inGameCanvas[0].SetActive(true);
+                    _gameInfo.DataLoad();
 
                     levelMap[0].SetActive(false);
                     inGameCanvas[1].SetActive(false);
                     break;
                 case 1:
                     inGameCanvas[0].SetActive(false);
-
+                    
                     levelMap[0].SetActive(true);
                     inGameCanvas[1].SetActive(true);
                     break;
             }
         }
+        
+        if (PlayerPrefs.GetInt("firstCheck") != 1)
+        {
+            _gameInfo.InsertData();
+            PlayerPrefs.SetInt("firstCheck", 1);
+        }
+        
     }
 }   
