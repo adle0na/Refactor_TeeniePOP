@@ -471,7 +471,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("InGameState", 0);
         PlayerPrefs.SetInt("StageClear", state);
         // 0: 디폴트 1: Clear 2: Lose
-        SceneManager.LoadScene("Scenes_P/InGameScene");
+        SceneManager.LoadScene("Scenes/InGameScene_P");
     }
 
     public void QuitPopUp()

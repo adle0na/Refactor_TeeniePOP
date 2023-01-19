@@ -162,7 +162,7 @@ public class LoadingSceneManager : MonoBehaviour {
         StaticManager.UI.SetLoadingIcon(false);
         loadingText.text = "게임 시작하는 중";
         _initializeStep.Clear();
-        StaticManager.Instance.ChangeScene("Scenes_P/InGameScene");
+        StaticManager.Instance.ChangeScene("Scenes/InGameScene_P");
 
     }
 }
