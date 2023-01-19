@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05f1b39c-dfe7-4986-a465-972cbab1cd2b" name="Changes" comment="">
+    <list default="true" id="05f1b39c-dfe7-4986-a465-972cbab1cd2b" name="Changes" comment="[feat] Color Folder, Hierarchy Pro">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TeeniePingPop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TeeniePingPop/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts_P/Heart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_P/Energy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts_P/Heart.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_P/Energy.cs.meta" afterDir="false" />
@@ -17,6 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/PopUpManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadingSceneManager/LoadingSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoginScene/LoginSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -99,7 +100,7 @@
       <workItem from="1674099977457" duration="82000" />
       <workItem from="1674100116609" duration="2013000" />
       <workItem from="1674116462189" duration="12000" />
-      <workItem from="1674117019955" duration="1587000" />
+      <workItem from="1674117019955" duration="2492000" />
     </task>
     <task id="LOCAL-00001" summary="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업">
       <created>1673949350139</created>
@@ -108,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673949350139</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[feat] Color Folder, Hierarchy Pro">
+      <created>1674118827612</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674118827612</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +139,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업" />
-    <option name="LAST_COMMIT_MESSAGE" value="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업" />
+    <MESSAGE value="[feat] Color Folder, Hierarchy Pro" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feat] Color Folder, Hierarchy Pro" />
   </component>
 </project>
