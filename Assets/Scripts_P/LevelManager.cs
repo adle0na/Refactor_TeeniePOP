@@ -313,8 +313,8 @@ public class LevelManager : MonoBehaviour
         PopUsingCheck = true;
     }
     
-    // 체인블록 사용
-    public void BombDown(Tping tping) 
+    // 팝 아이템 사용
+    public void PopUse(Tping tping) 
     {
         // 플레이 체크
         if (!_isPlaying) return;
@@ -336,6 +336,11 @@ public class LevelManager : MonoBehaviour
             PopUsingCheck = false;
         }
 
+    }
+
+    public void BombDown(Bomb bomb)
+    {
+        Destroy(bomb.gameObject);
     }
     
     // 블록 파괴시 실행 (점수 증가, 블록 재생성 관리 )

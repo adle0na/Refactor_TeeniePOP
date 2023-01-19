@@ -56,7 +56,7 @@ public class Bomb : MonoBehaviour
             
         isBoom = true;
         
-        //LevelManager.Instance.BombDown(this);
+        LevelManager.Instance.BombDown(this);
         
         Instantiate(laser[level], pos.position, transform.rotation);
     }

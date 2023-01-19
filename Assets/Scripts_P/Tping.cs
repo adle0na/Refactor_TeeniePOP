@@ -36,7 +36,7 @@ public class Tping : MonoBehaviour
 
         if (LevelManager.Instance.PopUsingCheck)
         {
-            LevelManager.Instance.BombDown(this);
+            LevelManager.Instance.PopUse(this);
         }
     }
 
