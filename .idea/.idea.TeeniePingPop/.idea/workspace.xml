@@ -5,140 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05f1b39c-dfe7-4986-a465-972cbab1cd2b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/2D Casual UI/Sprite/GUI_yellow.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D Casual UI/Sprite/GUI_yellow.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FruitFace_v1/Animation/UI_FX/UI_FX_ray_line 1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FruitFace_v1/Animation/UI_FX/UI_FX_ray_line 1.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Images/Sample_UI/bolt.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Images/Sample_UI/bolt.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LoginButtonGroup.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/LoginButtonGroup.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Stage.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Stage.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StaticManager.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/StaticManager.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/InGameUI_Etc.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/InGameUI_Etc.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/InGameUI_Post.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/InGameUI_Post.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/LoginUI_CustomLogin.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/LoginUI_CustomLogin.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/LoginUI_CustomSignUp.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/LoginUI_CustomSignUp.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/LoginUI_Nickname.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/LoginUI_Nickname.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/LoginUI_Policy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/LoginUI_Policy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WaterBomb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WaterBomb.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/t_00.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/t_00.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/t_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/t_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/t_02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/t_02.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/t_03.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/t_03.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/t_04.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/t_04.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/t_05.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/t_05.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/InGameScene/UI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/InGameScene/UI.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/InGameScene/UI/InGameUI_Etc.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/InGameScene/UI/InGameUI_Etc.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/InGameScene/UI/InGameUI_Post.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/InGameScene/UI/InGameUI_Post.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/InGameScene/UI/InGameUI_Rank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/InGameScene/UI/InGameUI_Rank.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LoginScene/UI/LoginUI_CustomLogin.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LoginScene/UI/LoginUI_CustomLogin.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LoginScene/UI/LoginUI_CustomSignUp.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LoginScene/UI/LoginUI_CustomSignUp.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LoginScene/UI/LoginUI_Nickname.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LoginScene/UI/LoginUI_Nickname.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LoginScene/UI/LoginUI_Policy.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LoginScene/UI/LoginUI_Policy.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/StaticManager.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/StaticManager.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/InGameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/InGameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LoadingScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LoadingScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/LoginScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/LoginScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/BackendGameData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/BackendGameData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Base.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Base/Chart.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Base/Chart.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Base/GameData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Base/GameData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Base/Normal.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Base/Normal.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/AllChart.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/AllChart.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Item.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Item/Item.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Item/Item.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Item/Manager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Item/Manager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Quest.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Quest/Item.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Quest/Item.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Quest/Manager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Quest/Manager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Shop.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Shop/Item.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Shop/Item.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Shop/Manager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Backend/Chart/Shop/Manager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseUI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseUI.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseUI/BaseUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseUI/BaseUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseUI/ExitButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseUI/ExitButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BaseUI/ExitButton.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BaseUI/ExitButton.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameData.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameData/ItemInventory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameData/ItemInventory.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameData/UserData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameData/UserData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginScene.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginScene.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginScene/LoginSceneManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginScene/LoginSceneManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginScene/LoginSceneManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginScene/LoginSceneManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginScene/UI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginScene/UI.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginScene/UI/LoginUI_Nickname.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginScene/UI/LoginUI_Nickname.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginScene/UI/LoginUI_Policy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginScene/UI/LoginUI_Policy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LoginScene/UI/LoginUI_Policy.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LoginScene/UI/LoginUI_Policy.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/CameraResolution.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/CameraResolution.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelSelector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelSelector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelSort.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelSort.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PopUpManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PopUpManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StageController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StageController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/Bomb.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/Bomb.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/CameraMovement.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/CameraMovement.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/Effect.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/Effect.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/Laser.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/Laser.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/Tping.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ObjectScript/Tping.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/BackendManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/BackendManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/BackendManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/BackendManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/StaticManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/StaticManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/StaticManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/StaticManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UI.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UI/AlertUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UI/AlertUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UI/FadeUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UI/FadeUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UI/FadeUI.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UI/FadeUI.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UIManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticManager/UIManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Energy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Energy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MouseCapture.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/MouseCapture.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Target.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/Target.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TouchEffect.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/TouchEffect.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TeeniePingPop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TeeniePingPop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts_P/Heart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_P/Energy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts_P/Heart.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts_P/Energy.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/build_info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Unity-Logs-Viewer/Reporter/Reporter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Unity-Logs-Viewer/Reporter/Reporter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,8 +17,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadingSceneManager/LoadingSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoginScene/LoginSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts_P/BackendGameInfo.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -219,7 +89,26 @@
       <workItem from="1673944950030" duration="2505000" />
       <workItem from="1673947565902" duration="85000" />
       <workItem from="1673947700011" duration="1136000" />
+      <workItem from="1673949273334" duration="83000" />
+      <workItem from="1674004517637" duration="20892000" />
+      <workItem from="1674033303704" duration="2233000" />
+      <workItem from="1674035787472" duration="1000" />
+      <workItem from="1674090446943" duration="1443000" />
+      <workItem from="1674091923543" duration="2442000" />
+      <workItem from="1674094521806" duration="739000" />
+      <workItem from="1674099977457" duration="82000" />
+      <workItem from="1674100116609" duration="2013000" />
+      <workItem from="1674116462189" duration="12000" />
+      <workItem from="1674117019955" duration="1587000" />
     </task>
+    <task id="LOCAL-00001" summary="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업">
+      <created>1673949350139</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673949350139</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,5 +130,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업" />
+    <option name="LAST_COMMIT_MESSAGE" value="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업" />
   </component>
 </project>

@@ -15,11 +15,11 @@ namespace InGameScene.UI
     //===========================================================
     // UI에 사용되는 아이템 클래스
     //===========================================================
-    public class Heart : MonoBehaviour
+    public class Energy : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI Energy_count;
         [SerializeField] private TextMeshProUGUI timer_Text;
-
+        
         private int maxEnergy = 50;
         private int currentEnergy;
         private int restoreDuration = 600;
@@ -30,6 +30,7 @@ namespace InGameScene.UI
         void Start()
         {
             currentEnergy = StaticManager.Backend.GameData.UserData.Energy;
+            Debug.Log("currentEnergy : " + currentEnergy);
             UpdateHeart();
             Load();
             StartCoroutine(RestoreHeart());
@@ -122,7 +123,7 @@ namespace InGameScene.UI
 
         private void UpdateHeart()
         {
-            Energy_count.text = StaticManager.Backend.GameData.UserData.Energy.ToString();
+            Energy_count.text = String.Format(($"{currentEnergy}/{maxEnergy}"));
         }
 
         private DateTime StringToDate(string dateTime)
