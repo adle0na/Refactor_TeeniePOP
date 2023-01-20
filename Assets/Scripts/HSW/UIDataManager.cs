@@ -13,42 +13,46 @@ using UnityEngine.Serialization;
 namespace InGameScene.UI
 {
     //===========================================================
-    // UI에 사용되는 아이템 클래스
+    // 상단 UI에 사용되는 유저 데이터 관리 클래스
     //===========================================================
-    public class Energy : MonoBehaviour
+    public class UIDataManager : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI Energy_count;
         [SerializeField] private TextMeshProUGUI timer_Text;
-        
+        [SerializeField] private TextMeshProUGUI Gold_count;
+
         private int maxEnergy = 50;
-        private int currentEnergy;
+        public  int currentEnergy;
         private int restoreDuration = 600;
+
+        public int  currentGold;
+        
         private DateTime nextEnergyTime;
         private DateTime lastEnergyTime;
         private bool isRestoring = false;
-
+    
         void Start()
         {
-            currentEnergy = StaticManager.Backend.GameData.UserData.Energy;
-            Debug.Log("currentEnergy : " + currentEnergy);
-            UpdateHeart();
+            UpdateEnergy();
             Load();
-            StartCoroutine(RestoreHeart());
+            StartCoroutine(RestoreEnergy());
         }
+
+        #region 에너지 관련
 
         public void UseEnergy()
         {
             if (currentEnergy >= 1)
             {
                 currentEnergy -= 5;
-                UpdateHeart();
+                UpdateEnergy();
 
                 if (isRestoring == false)
                 {
                     if (currentEnergy + 1 == maxEnergy)
                         nextEnergyTime = AddDuration(DateTime.Now, restoreDuration);
 
-                    StartCoroutine(RestoreHeart());
+                    StartCoroutine(RestoreEnergy());
                 }
             }
             else
@@ -58,10 +62,10 @@ namespace InGameScene.UI
             }
 
         }
-
-        private IEnumerator RestoreHeart()
+        
+        private IEnumerator RestoreEnergy()
         {
-            UpdateHeartTimer();
+            UpdateEnergyTimer();
             isRestoring = true;
 
             while (currentEnergy < maxEnergy)
@@ -69,15 +73,15 @@ namespace InGameScene.UI
                 DateTime currentDateTime = DateTime.Now;
                 DateTime nextDateTime = nextEnergyTime;
 
-                bool isHeartAdding = false;
+                bool isEnergyCharing = false;
 
                 while (currentDateTime > nextDateTime)
                 {
                     if (currentEnergy < maxEnergy)
                     {
-                        isHeartAdding = true;
+                        isEnergyCharing = true;
                         currentEnergy++;
-                        UpdateHeart();
+                        UpdateEnergy();
                         DateTime timeToAdd = lastEnergyTime > nextDateTime ? lastEnergyTime : nextDateTime;
                         nextDateTime = AddDuration(timeToAdd, restoreDuration);
                     }
@@ -87,14 +91,14 @@ namespace InGameScene.UI
                     }
                 }
 
-                if (isHeartAdding == true)
+                if (isEnergyCharing == true)
                 {
                     lastEnergyTime = DateTime.Now;
                     nextEnergyTime = nextDateTime;
                 }
 
-                UpdateHeartTimer();
-                UpdateHeart();
+                UpdateEnergyTimer();
+                UpdateEnergy();
                 Save();
                 yield return null;
             }
@@ -106,8 +110,8 @@ namespace InGameScene.UI
         {
             return dateTime.AddSeconds(duration);
         }
-
-        private void UpdateHeartTimer()
+        
+        private void UpdateEnergyTimer()
         {
             if (currentEnergy >= maxEnergy)
             {
@@ -121,11 +125,44 @@ namespace InGameScene.UI
             timer_Text.text = timeValue;
         }
 
-        private void UpdateHeart()
+        private void UpdateEnergy()
         {
             Energy_count.text = String.Format(($"{currentEnergy}/{maxEnergy}"));
         }
+        
+        #endregion
 
+        #region 골드 관련
+
+        public void UseGold(int price)
+        {
+            if (currentGold >= price)
+            {
+                currentGold -= price;
+                UpdateGold();
+            }
+            else
+            {
+                // 골드가 부족해요 팝업 띄우기
+                Debug.Log("골드가 부족해요");
+            }
+        }
+
+        public void GetGold(int amount)
+        {
+            currentGold += amount;
+            UpdateGold();
+            PlayerPrefs.SetFloat("CurrentScore", 0);
+        }
+        
+        private void UpdateGold()
+        {
+            Gold_count.text = currentGold.ToString();
+        }
+
+        #endregion
+        
+        // 날짜값 서버에서 받아오는걸로 수정
         private DateTime StringToDate(string dateTime)
         {
             if (String.IsNullOrEmpty(dateTime)) return DateTime.Now;

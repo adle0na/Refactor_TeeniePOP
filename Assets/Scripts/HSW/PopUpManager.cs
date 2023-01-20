@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using InGameScene.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
@@ -9,15 +10,16 @@ using UnityEngine.SceneManagement;
 public class PopUpManager : MonoBehaviour
 {
     [SerializeField] private LevelData levelDB;
+    [SerializeField] private UIDataManager _uiDataManager;
     
     [Header("User Valuse")]
     [SerializeField]
     private List<GameObject> topIcons;
-    // 0: 하트, 1: 코인, 2: 컵케이크
+    // 0: 하트, 1: 코인
     
     [SerializeField]
     private List<GameObject> PopUps;
-    // 0: 클리어, 1: 실패, 2: 목표, 3: 상점, 4: 우편함, 5: 설정
+    // 0: 클리어, 1: 실패, 2: 목표 3: 우편함, 4: 설정
     
     [SerializeField]
     private GameObject popupBackGround;
@@ -41,6 +43,8 @@ public class PopUpManager : MonoBehaviour
 
     private void Awake()
     {
+        // 획득한 골드량 데이터에 추가, 초기화 설정
+        _uiDataManager.GetGold((int)(PlayerPrefs.GetFloat("CurrentScore") * 0.015f));
         clear_text[1].text = (PlayerPrefs.GetFloat("CurrentScore") * 0.015f).ToString("000");
         clear_text[2].text = PlayerPrefs.GetFloat("CurrentScore") + "점";
         if (PlayerPrefs.GetInt("ClearCheck") == 1)
@@ -78,6 +82,7 @@ public class PopUpManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("InGameState", 1);
         SceneManager.LoadScene("Scenes/InGameScene_P");
+        _uiDataManager.UseEnergy();
     }
 
     public void exit_Btn_SeletMap()

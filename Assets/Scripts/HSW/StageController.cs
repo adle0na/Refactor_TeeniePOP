@@ -16,6 +16,8 @@ public class StageController : MonoBehaviour
     
     void Awake()
     {
+        _gameInfo.DataLoad();
+        
         // 0: SelectMap 1: InGame
         for (int i = 0; i < inGameCanvas.Count; i++)
         {
@@ -23,7 +25,6 @@ public class StageController : MonoBehaviour
             {
                 case 0:
                     inGameCanvas[0].SetActive(true);
-                    _gameInfo.DataLoad();
 
                     levelMap[0].SetActive(false);
                     inGameCanvas[1].SetActive(false);
