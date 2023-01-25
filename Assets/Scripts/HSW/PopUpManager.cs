@@ -11,6 +11,7 @@ public class PopUpManager : MonoBehaviour
 {
     [SerializeField] private LevelData levelDB;
     [SerializeField] private UIDataManager _uiDataManager;
+    [SerializeField] private BackendGameInfo _gameInfo;
     
     [Header("User Valuse")]
     [SerializeField]
@@ -45,6 +46,7 @@ public class PopUpManager : MonoBehaviour
     {
         // 획득한 골드량 데이터에 추가, 초기화 설정
         _uiDataManager.GetGold((int)(PlayerPrefs.GetFloat("CurrentScore") * 0.015f));
+        PlayerPrefs.SetFloat("EarnedCoin", PlayerPrefs.GetFloat("CurrentScore") * 0.015f);
         clear_text[1].text = (PlayerPrefs.GetFloat("CurrentScore") * 0.015f).ToString("000");
         clear_text[2].text = PlayerPrefs.GetFloat("CurrentScore") + "점";
         if (PlayerPrefs.GetInt("ClearCheck") == 1)
@@ -55,7 +57,8 @@ public class PopUpManager : MonoBehaviour
             PlayerPrefs.SetInt("ClearCheck", 0);
         }
         
-        // 획득한 동전양 비례하여 이펙트 실행
+        // 획득한 동전양 비례하여 이펙트 실행 추가
+        _gameInfo.Backend_GoldUpdate();
     }
 
     #region 팝업 버튼

@@ -17,6 +17,8 @@ public class BackendGameInfo : MonoBehaviour
         int Energy    = 50;
         int Gold      = 0;
         int HighLevel = 0;
+        string inDate;
+        
         Param param = new Param();
         param.Add("Energy", Energy);
         param.Add("HighLevel", HighLevel);
@@ -169,6 +171,7 @@ public class BackendGameInfo : MonoBehaviour
    
    void GetData(JsonData data)
    {
+       var Gamer_id = data["gamer_id"][0];
        var HighLevel = data["HighLevel"][0];
        var Energy = data["Energy"][0];
        var Gold = data["Gold"][0];
@@ -203,7 +206,6 @@ public class BackendGameInfo : MonoBehaviour
        {
            Debug.Log("에너지 존재하지 않는 키");
        }
-              
        if (data.Keys.Contains("Collections"))
        {
            JsonData collectionData = data["Collections"][0];
@@ -250,8 +252,25 @@ public class BackendGameInfo : MonoBehaviour
                 return;
             }
             _uiDataManager.currentEnergy = int.Parse(bro.FlattenRows()[0]["Energy"].ToString());
-
+            Debug.Log("에너지값 동기화");
+            _uiDataManager.currentGold   = int.Parse(bro.FlattenRows()[0]["Gold"].ToString());
+            Debug.Log("골드값 동기화");
         });
         
+    }
+    
+    // 데이터값 수정
+    public void Backend_EnergyUpdate()
+    {
+        Param param = new Param();
+        param.Add("Energy", _uiDataManager.currentEnergy);
+
+// 자신의 inDate의 row를 제거
+
+    }
+
+    public void Backend_GoldUpdate()
+    {
+
     }
 }

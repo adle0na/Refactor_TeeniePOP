@@ -14,7 +14,7 @@ namespace BackendData.Base {
     // 게임 데이터의 불러오기와 쓰기에 대한 공통적인 로직을 가진 클래스
     //===============================================================
     public abstract class GameData : Normal {
-        private string _inDate;
+        public string _inDate;
 
         public string GetInDate() {
             return _inDate;

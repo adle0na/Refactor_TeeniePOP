@@ -69,7 +69,7 @@ public class BackendManager : MonoBehaviour {
     //비동기 함수를 메인쓰레드로 보내어 UI에 용이하게 접근하도록 도와주는 Poll 함수
     void Update() {
         if (Backend.IsInitialized) {
-            Backend.AsyncPoll();
+            //Backend.AsyncPoll();
             Backend.ErrorHandler.Poll();
         }
     }

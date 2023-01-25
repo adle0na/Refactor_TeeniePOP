@@ -2660,7 +2660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a47bf8b6f0f5d4389f70f6fb9a0a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiDataManager: {fileID: 0}
+  _uiDataManager: {fileID: 3849057535159569367}
 --- !u!4 &415738562
 Transform:
   m_ObjectHideFlags: 0
@@ -17776,6 +17776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelDB: {fileID: 11400000, guid: 2fcc25142e989494398534994ac7fb51, type: 2}
   _uiDataManager: {fileID: 3849057535159569367}
+  _gameInfo: {fileID: 415738561}
   topIcons:
   - {fileID: 3849057535420851866}
   - {fileID: 3849057534034599942}
@@ -22441,6 +22442,7 @@ MonoBehaviour:
   Energy_count: {fileID: 3849057535537636451}
   timer_Text: {fileID: 3849057533974849679}
   Gold_count: {fileID: 3849057535464808986}
+  _gameInfo: {fileID: 415738561}
   currentEnergy: 0
   currentGold: 0
 --- !u!114 &3849057535181127456

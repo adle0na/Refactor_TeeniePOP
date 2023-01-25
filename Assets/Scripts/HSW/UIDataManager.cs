@@ -20,10 +20,11 @@ namespace InGameScene.UI
         [SerializeField] private TextMeshProUGUI Energy_count;
         [SerializeField] private TextMeshProUGUI timer_Text;
         [SerializeField] private TextMeshProUGUI Gold_count;
-
+        [SerializeField] private BackendGameInfo _gameInfo;
+        
         private int maxEnergy = 50;
         public  int currentEnergy;
-        private int restoreDuration = 600;
+        private int restoreDuration = 30;
 
         public int  currentGold;
         
@@ -46,6 +47,7 @@ namespace InGameScene.UI
             {
                 currentEnergy -= 5;
                 UpdateEnergy();
+                _gameInfo.Backend_EnergyUpdate();
 
                 if (isRestoring == false)
                 {
