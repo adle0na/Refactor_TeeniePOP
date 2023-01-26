@@ -17,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/CatchArrow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/CatchModeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/PopUpManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/UIDataManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LoadingSceneManager/LoadingSceneManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -110,7 +110,7 @@
       <workItem from="1674180926507" duration="67000" />
       <workItem from="1674184424701" duration="13107000" />
       <workItem from="1674609486439" duration="7408000" />
-      <workItem from="1674698030630" duration="9707000" />
+      <workItem from="1674698030630" duration="12134000" />
     </task>
     <task id="LOCAL-00001" summary="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업">
       <created>1673949350139</created>
