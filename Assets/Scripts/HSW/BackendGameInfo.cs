@@ -262,10 +262,6 @@ public class BackendGameInfo : MonoBehaviour
     // 데이터값 수정
     public void Backend_EnergyUpdate()
     {
-        Param param = new Param();
-        param.Add("Energy", _uiDataManager.currentEnergy);
-
-// 자신의 inDate의 row를 제거
 
     }
 
