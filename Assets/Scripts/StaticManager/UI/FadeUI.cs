@@ -53,7 +53,7 @@ public class FadeUI : MonoBehaviour
         
         var routine = new WaitForSeconds(0.01f);
 
-        float fadeSpeed = (10 / second) * 0.001f;
+        float fadeSpeed = (10 / second) * 0.002f;
         Color color = _fadeImage.color;
 
         switch (fadeType) {

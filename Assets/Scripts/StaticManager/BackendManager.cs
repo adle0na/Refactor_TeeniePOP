@@ -22,9 +22,9 @@ public class BackendManager : MonoBehaviour {
     //뒤끝 콘솔에 업로드한 차트 데이터만 모아놓은 클래스
     public class BackendChart {
         public readonly BackendData.Chart.AllChart ChartInfo = new(); // 모든 차트
-        public readonly BackendData.Chart.Stage.Manager Stage = new(); // Stage 차트
-        public readonly BackendData.Chart.Item.Manager Item = new(); // 아이템 차트
-        public readonly BackendData.Chart.Shop.Manager Shop = new(); // 샵 차트
+        // public readonly BackendData.Chart.Stage.Manager Stage = new(); // Stage 차트
+        // public readonly BackendData.Chart.Item.Manager Item = new(); // 아이템 차트
+        // public readonly BackendData.Chart.Shop.Manager Shop = new(); // 샵 차트
     }
 
     // 게임 정보 관리 데이터만 모아놓은 클래스
@@ -235,7 +235,7 @@ public class BackendManager : MonoBehaviour {
                     //호출하기 전 우편의 갯수와 동일하지 않다면 우편 아이콘 오른쪽에 표시
                     if (postCount != Post.Dictionary.Count) {
                         if (StaticManager.Backend.Post.Dictionary.Count > 0) {
-                            FindObjectOfType<InGameScene.RightButtonGroupManager>().SetPostIconAlert(true);
+                            //FindObjectOfType<InGameScene.RightButtonGroupManager>().SetPostIconAlert(true);
                         }
                     }
                 }

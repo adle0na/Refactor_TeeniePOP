@@ -17,6 +17,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Data/String/StringData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackendData/Base/Chart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackendData/Chart/Item/Manager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackendData/Chart/Stage/Item.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackendData/TestBack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/CameraResolution.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/CatchModeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/PopUpManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/UIDataManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -111,6 +117,15 @@
       <workItem from="1674184424701" duration="13107000" />
       <workItem from="1674609486439" duration="7408000" />
       <workItem from="1674698030630" duration="12134000" />
+      <workItem from="1674781603585" duration="1360000" />
+      <workItem from="1674783152943" duration="7000" />
+      <workItem from="1674783312416" duration="2458000" />
+      <workItem from="1674788147695" duration="467000" />
+      <workItem from="1674788639464" duration="57000" />
+      <workItem from="1674788702456" duration="2535000" />
+      <workItem from="1674791561349" duration="185000" />
+      <workItem from="1674791771424" duration="858000" />
+      <workItem from="1674796859536" duration="15639000" />
     </task>
     <task id="LOCAL-00001" summary="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업">
       <created>1673949350139</created>

@@ -8,26 +8,32 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.Serialization;
 using UnityEngine.SceneManagement;
+using BackendData.Chart.LevelData;
 
 public class LevelManager : MonoBehaviour
 {
+    public LevelData levelDB;
     // 싱글톤 사용
     public static LevelManager Instance { get; private set; }
     
+    // 뒤끝 차트 받아오기
+    private Item _levelData;
+    
     #region Serialize변수
 
-    [SerializeField] private LevelData levelDB;
-    
-    // 티니핑 프리팹 배열 ( 현재 샘플로 과일 사용중 )
+    // 생성되는 티니핑 프리팹 배열 
     [SerializeField]
     private GameObject[]    TPingPrefabs;
-    // 라인 렌더러
-    [SerializeField]
-    private LineRenderer    LineRenderer;
+    
+    // // 라인 렌더러
+    // [SerializeField]
+    // private LineRenderer    LineRenderer;
+    
     // 폭탄 프리팹
     [SerializeField]
     private GameObject      BombPrefab;
-    // 리미트 초기화 값
+    
+    // 남은 횟수 텍스트
     [SerializeField]
     private TextMeshProUGUI DragPointText;
     
@@ -120,7 +126,7 @@ public class LevelManager : MonoBehaviour
         _isPlaying = true;
         PopUsingCheck = false;
 
-        DragPoint             = levelDB.Sheet1[level].drag;
+        DragPoint             = levelDB.Sheet1[level].level;
         DragPointText.text    = DragPoint.ToString();
         string[] targets      = levelDB.Sheet1[level].targets.Split(", ");
         string[] targetValues = levelDB.Sheet1[level].targetValue.Split(", ");
@@ -495,7 +501,5 @@ public class LevelManager : MonoBehaviour
         InGamePopUps[4].SetActive(true);
     }
     
-    
-
     #endregion
 }

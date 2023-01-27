@@ -83,8 +83,7 @@ public class PopUpManager : MonoBehaviour
 
     public void PlayBtn()
     {
-        PlayerPrefs.SetInt("InGameState", 1);
-        SceneManager.LoadScene("Scenes/InGameScene_P");
+        SceneManager.LoadScene("Scenes/InGameScene");
         _uiDataManager.UseEnergy();
     }
 

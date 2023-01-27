@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f73686beee0604aacdd0316bd1ee08, type: 3}
+  m_Name: StringData
+  m_EditorClassIdentifier: 
+  Messages:
+  - String_ID: 1
+    Korean: "\uC81C\uB2C8"
+    US: 
+  - String_ID: 2
+    Korean: "\uBCF4\uC11D"
+    US: 
+  - String_ID: 3
+    Korean: "\uC5D0\uB108\uC9C0"
+    US: 
+  - String_ID: 4
+    Korean: "\uD328\uC2A4 \uD3EC\uC778\uD2B8"
+    US: 
+  - String_ID: 10
+    Korean: 0
+    US: 
+  - String_ID: 11
+    Korean: "\uD655\uC778"
+    US: 
+  - String_ID: 12
+    Korean: "\uC608"
+    US: 
+  - String_ID: 13
+    Korean: "\uC544\uB2C8\uC624"
+    US: 
+  - String_ID: 14
+    Korean: "\uB3CC\uC544\uAC00\uAE30"
+    US: 
+  - String_ID: 15
+    Korean: "\uC120\uD0DD"
+    US: 
+  - String_ID: 16
+    Korean: "\uBAA8\uB450 \uB3D9\uC758\uD558\uAE30"
+    US: 
+  - String_ID: 17
+    Korean: "\uB3D9\uC758\uD558\uAE30"
+    US: 
+  - String_ID: 18
+    Korean: "\uAC8C\uC2A4\uD2B8 \uB85C\uADF8\uC778"
+    US: 
+  - String_ID: 19
+    Korean: "\uCDE8\uC18C"
+    US: 
+  - String_ID: 20
+    Korean: "\uB098\uAC00\uAE30"
+    US: 
+  - String_ID: 21
+    Korean: "\uD574\uC81C"
+    US: 
+  - String_ID: 22
+    Korean: "\uC0AD\uC81C"
+    US: 
+  - String_ID: 23
+    Korean: "\uC0C1\uC810"
+    US: 
+  - String_ID: 24
+    Korean: "\uBC14\uB85C \uAC00\uAE30"
+    US: 
+  - String_ID: 25
+    Korean: "\uC6B0\uD3B8\uD568"
+    US: 
+  - String_ID: 26
+    Korean: "\uCE5C\uAD6C"
+    US: 
+  - String_ID: 27
+    Korean: "\uC124\uC815"
+    US: 
+  - String_ID: 28
+    Korean: "\uACF5\uC9C0 \uC0AC\uD56D"
+    US: 
+  - String_ID: 29
+    Korean: "\uC5C5\uC801"
+    US: 
+  - String_ID: 30
+    Korean: "\uBBF8\uC158"
+    US: 
+  - String_ID: 31
+    Korean: "\uBA54\uB274"
+    US: 
+  - String_ID: 32
+    Korean: "\uCD9C\uC11D\uBD80"
+    US: 
+  - String_ID: 33
+    Korean: "\uCE90\uB9AD\uD130 \uC815\uBCF4"
+    US: 
+  - String_ID: 34
+    Korean: "\uCE74\uB4DC"
+    US: 
+  - String_ID: 35
+    Korean: "\uB3C4\uAC10"
+    US: 
+  - String_ID: 36
+    Korean: "\uB3C4\uC6C0\uB9D0"
+    US: 
+  - String_ID: 37
+    Korean: "\uCE74\uB4DC \uAC01\uC778"
+    US: 
+  - String_ID: 38
+    Korean: "\uAC15\uD654"
+    US: 
+  - String_ID: 39
+    Korean: "\uACF5\uACA9"
+    US: 
+  - String_ID: 40
+    Korean: "\uC218\uBE44"
+    US: 
+  - String_ID: 41
+    Korean: "\uC81C\uB2C8 \uC0C1\uC810"
+    US: 
+  - String_ID: 42
+    Korean: "\uBCF4\uC11D \uC0C1\uC810"
+    US: 
+  - String_ID: 43
+    Korean: "\uC5D0\uB108\uC9C0 \uC0C1\uC810"
+    US: 
+  - String_ID: 44
+    Korean: "\uCE74\uB4DC \uBF51\uAE30"
+    US: 
+  - String_ID: 45
+    Korean: "\uD328\uD0A4\uC9C0"
+    US: 
+  - String_ID: 46
+    Korean: "\uD655\uB960\uC815\uBCF4"
+    US: 

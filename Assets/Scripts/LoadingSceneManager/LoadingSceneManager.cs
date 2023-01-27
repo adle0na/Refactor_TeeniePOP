@@ -23,10 +23,10 @@ public class LoadingSceneManager : MonoBehaviour {
     private delegate void BackendLoadStep();
     private readonly Queue<BackendLoadStep> _initializeStep = new Queue<BackendLoadStep>();
 
-    void Awake() {
-        if (Backend.IsInitialized == false) {
+    void Awake()
+    {
+        if (Backend.IsInitialized == false)
             SceneManager.LoadScene("LoginScene");
-        }
     }
     
     void Start() {
@@ -46,15 +46,10 @@ public class LoadingSceneManager : MonoBehaviour {
         _initializeStep.Enqueue(() => {ShowDataName("트랜잭션 시도 함수"); TransactionRead(NextStep); });
         
         // 차트정보 불러오기 함수 Insert
-        // _initializeStep.Enqueue(() => { ShowDataName("모든 차트 정보"); StaticManager.Backend.Chart.ChartInfo.BackendLoad(NextStep); });
-        // _initializeStep.Enqueue(() => { ShowDataName("코인 보유량"); StaticManager.Backend.Chart.Stage.BackendChartDataLoad(NextStep); });
-        // _initializeStep.Enqueue(() => { ShowDataName("아이템 보유량"); StaticManager.Backend.Chart.Shop.BackendChartDataLoad(NextStep); });
+        _initializeStep.Enqueue(() => { ShowDataName("모든 차트 정보"); StaticManager.Backend.Chart.ChartInfo.BackendLoad(NextStep); });
+
         // 우편 정보 불러오기 함수 Insert
         _initializeStep.Enqueue(() => { ShowDataName("관리자 우편 정보 불러오기"); StaticManager.Backend.Post.BackendLoad(NextStep); });
-        //_initializeStep.Enqueue(() => { ShowDataName("랭킹 우편 정보 불러오기"); StaticManager.Backend.Post.BackendLoadForRank(NextStep); });
-
-        //다음 씬으로 넘어가는 함수 Insert
-
 
         //게이지 바 지정
         _maxLoadingCount = _initializeStep.Count;
@@ -84,12 +79,12 @@ public class LoadingSceneManager : MonoBehaviour {
                 _initializeStep.Dequeue().Invoke();
             }
             else {
-                InGameStart();
+                GoLevelSelect();
             }
         }
         else {
             Debug.Log("테이블값 안맞는거 있긴한데 넘겨드림");
-            InGameStart();
+            GoLevelSelect();
         }
     }
 
@@ -158,11 +153,11 @@ public class LoadingSceneManager : MonoBehaviour {
     }
 
     // 인게임씬으로 이동가는 함수
-    private void InGameStart(){
+    private void GoLevelSelect(){
         StaticManager.UI.SetLoadingIcon(false);
         loadingText.text = "게임 시작하는 중";
         _initializeStep.Clear();
-        StaticManager.Instance.ChangeScene("Scenes/InGameScene_P");
+        StaticManager.Instance.ChangeScene("Scenes/LevelSelect");
 
     }
 }

@@ -18,7 +18,7 @@ public class LoginUI_Nickname : BaseUI {
         string nickname = _nickNameInputField.text;
 
         if (string.IsNullOrEmpty(nickname)) {
-            ShowAlertUI("닉네임이 비어있습니다.");
+            LoginSceneManager.Instance.GoNextScene();
             return;
         }
 

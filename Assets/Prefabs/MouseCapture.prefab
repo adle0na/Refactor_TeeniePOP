@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPrefab: {fileID: 2320103550849708660, guid: 4c6698921e827b54fbaddb6532afcc08, type: 3}
-  defaultTime: 0.05
+  defaultTime: 0.07

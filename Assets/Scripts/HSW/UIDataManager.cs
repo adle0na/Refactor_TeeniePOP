@@ -59,8 +59,9 @@ namespace InGameScene.UI
             }
             else
             {
+                currentEnergy = 0;
                 // 하트가 부족해요 팝업 띄우기
-                Debug.Log("하트가 부족해요");
+                Debug.Log("에너지가 부족해요");
             }
 
         }

@@ -79,8 +79,8 @@ namespace BackendData.Post {
                         }
                         else {
                             // 새로운 아이템 등록
-                            PostItem postItem = new PostItem(postType, postListJson[i]);
-                            _dictionary.Add(postItem.inDate, postItem);
+                            //PostItem postItem = new PostItem(postType, postListJson[i]);
+                            //_dictionary.Add(postItem.inDate, postItem);
                         }
                     }
                     isSuccess = true;

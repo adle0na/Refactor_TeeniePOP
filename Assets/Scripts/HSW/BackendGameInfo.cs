@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +11,19 @@ using UnityEngine.Serialization;
 public class BackendGameInfo : MonoBehaviour
 {
     [SerializeField] private UIDataManager _uiDataManager;
-    
+
+    private void Awake()
+    {
+        DataLoad();
+    }
+
     // 데이터값 삽입
     public void InsertData()
     {
         int Energy    = 50;
         int Gold      = 0;
         int HighLevel = 0;
-        string inDate;
-        
+
         Param param = new Param();
         param.Add("Energy", Energy);
         param.Add("HighLevel", HighLevel);
@@ -252,9 +257,9 @@ public class BackendGameInfo : MonoBehaviour
                 return;
             }
             _uiDataManager.currentEnergy = int.Parse(bro.FlattenRows()[0]["Energy"].ToString());
-            Debug.Log("에너지값 동기화");
+            Debug.Log("에너지값 동기화" + _uiDataManager.currentEnergy);
             _uiDataManager.currentGold   = int.Parse(bro.FlattenRows()[0]["Gold"].ToString());
-            Debug.Log("골드값 동기화");
+            Debug.Log("골드값 동기화" + _uiDataManager.currentGold);
         });
         
     }
@@ -262,6 +267,10 @@ public class BackendGameInfo : MonoBehaviour
     // 데이터값 수정
     public void Backend_EnergyUpdate()
     {
+        Param param = new Param();
+        param.Add("Energy", _uiDataManager.currentEnergy);
+        
+        //Backend.GameData.UpdateV2( "CustomData", inDate, param, Backend.UserInDate, ( callback ) => 
 
     }
 
