@@ -8,7 +8,7 @@ namespace BackendData.Chart.LevelData {
     //===============================================================
     // LevelData 차트의 각 row 데이터 클래스
     //===============================================================
-    public class Item
+    public class LevelData
     {
         #region KeyIndexs
 
@@ -34,7 +34,7 @@ namespace BackendData.Chart.LevelData {
 
         #region Json Parsing
         
-        public Item(JsonData json)
+        public LevelData(JsonData json)
         {
             level_Id        = int.Parse(json["level_Id"].ToString());
             spawnPing_1     = int.Parse(json["spawnPing_1"].ToString());

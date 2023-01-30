@@ -21,7 +21,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackendData/Base/Chart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackendData/Chart/Item/Manager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackendData/Chart/Stage/Item.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BackendData/TestBack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/CameraResolution.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/CatchModeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/HSW/PopUpManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -126,6 +125,9 @@
       <workItem from="1674791561349" duration="185000" />
       <workItem from="1674791771424" duration="858000" />
       <workItem from="1674796859536" duration="15639000" />
+      <workItem from="1675041386549" duration="4870000" />
+      <workItem from="1675047455084" duration="715000" />
+      <workItem from="1675048182633" duration="2745000" />
     </task>
     <task id="LOCAL-00001" summary="[feat] 기능추가 중간 세이브, 뒤끝 데이터 연동 수정, 인게임 아이템 기능 추가 작업">
       <created>1673949350139</created>

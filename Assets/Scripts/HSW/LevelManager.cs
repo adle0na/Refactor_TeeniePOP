@@ -15,10 +15,7 @@ public class LevelManager : MonoBehaviour
     public LevelData levelDB;
     // 싱글톤 사용
     public static LevelManager Instance { get; private set; }
-    
-    // 뒤끝 차트 받아오기
-    private Item _levelData;
-    
+
     #region Serialize변수
 
     // 생성되는 티니핑 프리팹 배열 

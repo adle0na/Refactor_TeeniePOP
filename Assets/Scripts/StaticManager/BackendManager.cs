@@ -22,30 +22,30 @@ public class BackendManager : MonoBehaviour {
     //뒤끝 콘솔에 업로드한 차트 데이터만 모아놓은 클래스
     public class BackendChart {
         public readonly BackendData.Chart.AllChart ChartInfo = new(); // 모든 차트
-        // public readonly BackendData.Chart.Stage.Manager Stage = new(); // Stage 차트
-        // public readonly BackendData.Chart.Item.Manager Item = new(); // 아이템 차트
-        // public readonly BackendData.Chart.Shop.Manager Shop = new(); // 샵 차트
+        public readonly BackendData.Chart.Shop.Manager Shop = new(); // 샵 차트
+        public readonly BackendData.Chart.Item.Manager Item = new(); // 아이템 차트
+        public readonly BackendData.Chart.LevelData.Manager LevelData = new(); // 레벨 차트
+        //public readonly BackendData.Chart.ADData.Manager ADData = new(); // 광고 차트
     }
 
     // 게임 정보 관리 데이터만 모아놓은 클래스
     public class BackendGameData {
-        public readonly BackendData.GameData.UserData UserData = new(); // UserData 테이블 데이터
+        public readonly BackendData.GameData.CustomData CustomData = new(); // CustomData 테이블 데이터
         public readonly BackendData.GameData.ItemInventory ItemInventory = new(); // ItemInventory 테이블 데이터
         
         public readonly Dictionary<string, BackendData.Base.GameData>
             GameDataList = new Dictionary<string, GameData>();
 
         public BackendGameData() {
-            GameDataList.Add("내 유저 정보", UserData);
-            GameDataList.Add("내 아이템 정보", ItemInventory);
+            GameDataList.Add("유저 정보", CustomData);
+            GameDataList.Add("아이템 정보", ItemInventory);
         }
     }
 
     public BackendChart   Chart = new(); // 차트 모음 클래스 생성
     public BackendGameData GameData = new(); // 게임 모음 클래스 생성
-    public BackendData.Post.Manager Post = new(); // 우편 클래스 생성
 
- // 게임 데이터의 저장, 조회등 일괄적으로 처리하기 위한 List
+    // 게임 데이터의 저장, 조회등 일괄적으로 처리하기 위한 List
 
     private bool _isErrorOccured = false; // 치명적인 에러 발생 여부 
 
@@ -98,7 +98,6 @@ public class BackendManager : MonoBehaviour {
 
         Chart = new();
         GameData = new();
-        Post = new();
     }
 
     //SendQueue를 관리해주는 SendQueue 매니저 생성
@@ -113,7 +112,7 @@ public class BackendManager : MonoBehaviour {
     public void StartUpdate() {
         StartCoroutine(UpdateGameDataTransaction());
         //StartCoroutine(UpdateRankScore());
-        StartCoroutine(GetAdminPostList());
+        //StartCoroutine(GetAdminPostList());
     }
 
     // 호출 시, 코루틴 내 함수들의 동작을 멈추게 하는 함수
@@ -219,34 +218,34 @@ public class BackendManager : MonoBehaviour {
     }
 
     // 일정 주기마다 우편을 불러오는 코루틴 함수
-    private IEnumerator GetAdminPostList() {
-        var seconds = new WaitForSeconds(600);
-        yield return seconds;
-
-        while (_isErrorOccured) {
-            // 현재 post 함수 체크
-            int postCount = StaticManager.Backend.Post.Dictionary.Count;
-            
-            //랭크보상은 수동으로 체크하도록 구성
-            // 관리자우편은 자동으로 일정주기마다 호출하도록 구성
-            
-            Post.GetPostList(PostType.Admin, (success, info) => {
-                if (success) {
-                    //호출하기 전 우편의 갯수와 동일하지 않다면 우편 아이콘 오른쪽에 표시
-                    if (postCount != Post.Dictionary.Count) {
-                        if (StaticManager.Backend.Post.Dictionary.Count > 0) {
-                            //FindObjectOfType<InGameScene.RightButtonGroupManager>().SetPostIconAlert(true);
-                        }
-                    }
-                }
-                else {
-                    //에러가 발생할 경우 버그 리포트 발송
-                    SendBugReport(GetType().Name, MethodBase.GetCurrentMethod()?.ToString(), info);
-                }
-            });
-            yield return seconds;
-        }
-    }
+    // private IEnumerator GetAdminPostList() {
+    //     var seconds = new WaitForSeconds(600);
+    //     yield return seconds;
+    //
+    //     while (_isErrorOccured) {
+    //         // 현재 post 함수 체크
+    //         int postCount = StaticManager.Backend.Post.Dictionary.Count;
+    //         
+    //         //랭크보상은 수동으로 체크하도록 구성
+    //         // 관리자우편은 자동으로 일정주기마다 호출하도록 구성
+    //         
+    //         Post.GetPostList(PostType.Admin, (success, info) => {
+    //             if (success) {
+    //                 //호출하기 전 우편의 갯수와 동일하지 않다면 우편 아이콘 오른쪽에 표시
+    //                 if (postCount != Post.Dictionary.Count) {
+    //                     if (StaticManager.Backend.Post.Dictionary.Count > 0) {
+    //                         //FindObjectOfType<InGameScene.RightButtonGroupManager>().SetPostIconAlert(true);
+    //                     }
+    //                 }
+    //             }
+    //             else {
+    //                 //에러가 발생할 경우 버그 리포트 발송
+    //                 SendBugReport(GetType().Name, MethodBase.GetCurrentMethod()?.ToString(), info);
+    //             }
+    //         });
+    //         yield return seconds;
+    //     }
+    // }
 
     // 에러 발생시 게임로그를 삽입하는 함수
     public void SendBugReport(string className, string functionName, string errorInfo, int repeatCount = 3) {

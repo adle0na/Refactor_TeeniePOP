@@ -48,9 +48,18 @@ public class LoadingSceneManager : MonoBehaviour {
         // 차트정보 불러오기 함수 Insert
         _initializeStep.Enqueue(() => { ShowDataName("모든 차트 정보"); StaticManager.Backend.Chart.ChartInfo.BackendLoad(NextStep); });
 
-        // 우편 정보 불러오기 함수 Insert
-        _initializeStep.Enqueue(() => { ShowDataName("관리자 우편 정보 불러오기"); StaticManager.Backend.Post.BackendLoad(NextStep); });
+        // 상점 정보 불러오기 함수 Insert
+        _initializeStep.Enqueue(() => { ShowDataName("상점 정보 차트"); StaticManager.Backend.Chart.Shop.BackendLoad(NextStep); });
 
+        // 아이템 정보 불러오기 함수 Insert
+        _initializeStep.Enqueue(() => { ShowDataName("아이템 정보 차트"); StaticManager.Backend.Chart.Item.BackendLoad(NextStep); });
+        
+        // 레벨 정보 불러오기 함수 Insert
+        _initializeStep.Enqueue(() => { ShowDataName("레벨 정보 차트"); StaticManager.Backend.Chart.LevelData.BackendLoad(NextStep); });
+        
+        // 광고 정보 불러오기 함수 Insert
+        //_initializeStep.Enqueue(() => { ShowDataName("상점 정보 차트"); StaticManager.Backend.Chart.Shop.BackendLoad(NextStep); });
+        
         //게이지 바 지정
         _maxLoadingCount = _initializeStep.Count;
         loadingSlider.maxValue = _maxLoadingCount;
@@ -70,22 +79,19 @@ public class LoadingSceneManager : MonoBehaviour {
 
     // 각 뒤끝 함수를 호출하는 BackendGameDataLoad에서 실행한 결과를 처리하는 함수
     // 성공하면 다음 스텝으로 이동, 실패하면 에러 UI를 띄운다.
-    private void NextStep(bool isSuccess, string className, string funcName, string errorInfo) {
-        if (isSuccess) {
+    private void NextStep(bool isSuccess, string className, string funcName, string errorInfo)
+    {
+        if (isSuccess)
+        {
             _currentLoadingCount++;
             loadingSlider.value = _currentLoadingCount;
 
-            if (_initializeStep.Count > 0) {
+            if (_initializeStep.Count > 0)
                 _initializeStep.Dequeue().Invoke();
-            }
-            else {
-                GoLevelSelect();
-            }
+            else GoLevelSelect();
         }
-        else {
-            Debug.Log("테이블값 안맞는거 있긴한데 넘겨드림");
+        else
             GoLevelSelect();
-        }
     }
 
     // 트랜잭션 읽기 호출 함수

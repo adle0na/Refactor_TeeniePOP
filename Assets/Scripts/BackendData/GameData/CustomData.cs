@@ -11,7 +11,7 @@ namespace BackendData.GameData {
     //===============================================================
     // UserData 테이블의 데이터를 담당하는 클래스(변수)
     //===============================================================
-    public partial class UserData {
+    public partial class CustomData {
         public int HighLevel { get; private set; }
         public int Gold { get; private set; }
         
@@ -29,7 +29,7 @@ namespace BackendData.GameData {
     //===============================================================
     // UserData 테이블의 데이터를 담당하는 클래스(함수)
     //===============================================================
-    public partial class UserData : Base.GameData {
+    public partial class CustomData : Base.GameData {
         
         // 데이터가 존재하지 않을 경우, 초기값 설정
         protected override void InitializeData() {
